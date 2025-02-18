@@ -10,39 +10,15 @@ const LazyAuthrozation = lazy(
 const LazyLogMe = lazy(() => import("./routes/Auth/Logme/Logme"));
 const LazyRegMe = lazy(() => import("./routes/Auth/Regme/Regme"));
 
-const LazyPrimaryDocs = lazy(() => import("./routes/PrimaryDocs/PrimaryDocs"));
+const LazyPrimaryDocs = lazy(() => import("./routes/HR/PrimaryDocs"));
 
-const LazyContracts = lazy(
-	() => import("./routes/PrimaryDocs/Contracts/Contracts"),
-);
-const LazyInvoices = lazy(
-	() => import("./routes/PrimaryDocs/Invoices/Invoices"),
-);
-
-const LazyOverhead = lazy(
-	() => import("./routes/PrimaryDocs/Overhead/Overhead"),
-);
-
-const LazyPowerAttorney = lazy(
-	() => import("./routes/PrimaryDocs/Power of Attorney/PowerAttorney"),
-);
-
-const LazyTravelExprenses = lazy(
-	() => import("./routes/PrimaryDocs/Travel expenses/TravelExpenses"),
-);
-
-const LazyCertificateCompletionWork = lazy(
-	() =>
-		import(
-			"./routes/PrimaryDocs/Сertificate of completion of work/СertificateCompletionWork"
-		),
-);
+const LazyContracts = lazy(() => import("./routes/HR/Contracts/Contracts"));
 
 const LazyCreateContracts = lazy(
-	() => import("./routes/PrimaryDocs/Contracts/Create/CreateContracts"),
+	() => import("./routes/HR/Contracts/Create/CreateContracts"),
 );
 const LazyShowContracts = lazy(
-	() => import("./routes/PrimaryDocs/Contracts/Show/ShowContracts"),
+	() => import("./routes/HR/Contracts/Show/ShowContracts"),
 );
 // const LazyOrgcard = lazy(() => import("./routes/Orgcard/Orgcard"));
 function App() {
@@ -73,37 +49,12 @@ function App() {
 									element={<LazyContracts />}
 								/>
 								<Route
-									path="primary-docs/contracts/create"
+									path="hr/contracts/create"
 									element={<LazyCreateContracts />}
 								/>
 								<Route
 									path="primary-docs/contracts/show/:id"
 									element={<LazyShowContracts />}
-								/>
-								{/* Invoices */}
-								<Route
-									path="primary-docs/invoices"
-									element={<LazyInvoices />}
-								/>
-								{/* Overhead */}
-								<Route
-									path="primary-docs/overhead"
-									element={<LazyOverhead />}
-								/>
-								{/* Power of attorney */}
-								<Route
-									path="primary-docs/power-of-attorney"
-									element={<LazyPowerAttorney />}
-								/>
-								{/* Travel exprenses */}
-								<Route
-									path="primary-docs/travel-exprenses"
-									element={<LazyTravelExprenses />}
-								/>
-								{/* Certificate of completion of work */}
-								<Route
-									path="primary-docs/certificate-of-completion-of-work"
-									element={<LazyCertificateCompletionWork />}
 								/>
 
 								{/* Main route */}

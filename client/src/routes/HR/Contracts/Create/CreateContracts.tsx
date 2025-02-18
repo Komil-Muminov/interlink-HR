@@ -10,10 +10,7 @@ import Input from "../../../../UI/Input/Input";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../../../API/hooks/queryClient";
 import { createOrganization } from "../../../../API/services/organizations/createOrganization";
-import { useNavigate } from "react-router";
 import { useValid } from "../../../../API/hooks/useValid";
-import OrganizationCard from "../../../../UI/Card/Organization Card/OrganizationCard";
-import UserCard from "../../../../UI/Card/User Card/UserCard";
 import { useScroll } from "../../../../API/hooks/useScroll";
 import "./CreateContracts.css";
 
