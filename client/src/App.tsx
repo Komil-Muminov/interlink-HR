@@ -10,7 +10,7 @@ const LazyAuthrozation = lazy(
 const LazyLogMe = lazy(() => import("./routes/Auth/Logme/Logme"));
 const LazyRegMe = lazy(() => import("./routes/Auth/Regme/Regme"));
 
-const LazyPrimaryDocs = lazy(() => import("./routes/HR/PrimaryDocs"));
+const LazyPrimaryDocs = lazy(() => import("./routes/HR/Hr"));
 
 const LazyContracts = lazy(() => import("./routes/HR/Contracts/Contracts"));
 
@@ -44,10 +44,7 @@ function App() {
 							<Routes>
 								<Route path="/primary-docs" element={<LazyPrimaryDocs />} />
 								{/* Contracts */}
-								<Route
-									path="primary-docs/contracts"
-									element={<LazyContracts />}
-								/>
+								<Route path="hr/contracts" element={<LazyContracts />} />
 								<Route
 									path="hr/contracts/create"
 									element={<LazyCreateContracts />}

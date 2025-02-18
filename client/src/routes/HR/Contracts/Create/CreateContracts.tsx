@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import TitleSection from "../../../../UI/Title of Section/TitleSection";
 import PanelControl from "../../../../UI/Panel Control/PanelControl";
-import { Button, setRef } from "@mui/material";
+import { Button } from "@mui/material";
+import UserCard from "../../../../UI/User Card/UserCard";
 
 // ---------------------------------------------------------------------
 import { useForm } from "react-hook-form";
@@ -199,13 +200,13 @@ const CreateContracts = () => {
 						</div> */}
 						<div ref={setRefs("contracts")} className="contracts__docs-content">
 							{/* <CardOrganization item={getOrg} /> */}
-							<OrganizationCard data={getOrg} />
+							{/* <OrganizationCard data={getOrg} /> */}
 							<div className="contracts__docs-ucard">
-								<UserCard
+								{/* <UserCard
 									id="1"
 									fullname="Рохбар Рохбаров"
 									position="Руководитель"
-								/>
+								/> */}
 								<UserCard
 									id="2"
 									fullname="Сармухосиб Сармухосибев"

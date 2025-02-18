@@ -60,33 +60,39 @@ const Contracts: React.FC = () => {
 	const submodulesList: SubModulesListScheme[] = [
 		{
 			id: 1,
-			title: "Договоры",
-			link: "/primary-docs/contracts",
+			title: "Кадр",
+			link: "/hr/contracts",
 		},
 		{
 			id: 2,
-			title: "Счет-фактуры",
-			link: "/primary-docs/invoices",
+			title: "Первичные документы",
+			link: "/primary-docs/contracts",
 		},
 		{
 			id: 3,
-			title: "Доверенность",
-			link: "/primary-docs/overhead",
+			title: "CRM",
+			link: "/crm/contracts",
 		},
 		{
 			id: 4,
-			title: "Накладные",
-			link: "/primary-docs/power-of-attorney",
+			title: "Корреспонденция",
+			link: "/correspondence/contracts",
 		},
 		{
 			id: 5,
-			title: "Командировочные расходы",
-			link: "/primary-docs/travel-expenses",
+			title: "Заявки",
+			link: "/request/contracts",
 		},
 		{
 			id: 6,
-			title: "Акт выполенных работ",
-			link: "/primary-docs/certificate-of-completion-of-work",
+			title: "Государственные услуги",
+			link: "/egov-services/contracts",
+		},
+
+		{
+			id: 7,
+			title: "Хаб",
+			link: "/hub/contracts",
 		},
 	];
 
@@ -97,7 +103,7 @@ const Contracts: React.FC = () => {
 				<h1 className="module-title">Реестр</h1>
 				<div className="panel-control-filter">
 					<Filter data={dataFilter} />
-					<Link to="create">
+					<Link to="/hr/contracts/create">
 						<button>Добавить</button>
 					</Link>
 				</div>

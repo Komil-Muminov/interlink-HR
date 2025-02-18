@@ -1,4 +1,4 @@
-import { ModulesListScheme } from "../../routes/HR/PrimaryDocs";
+import { ModulesListScheme } from "../../routes/HR/Hr";
 import { Link } from "react-router";
 import "./CardSubmodule.css";
 
