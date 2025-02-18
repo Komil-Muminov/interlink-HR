@@ -19,42 +19,43 @@ export interface SubmoduleProps {
 	link: string;
 }
 
-const subModulesList: SubmoduleProps[] = [
-	{
-		id: 1,
-		title: "Констурктор документов",
-		image: notFound,
-		link: "/hr/creatDoc",
-	},
+// Список подумодулей HR
+// const subModulesList: SubmoduleProps[] = [
+// 	{
+// 		id: 1,
+// 		title: "Констурктор документов",
+// 		image: notFound,
+// 		link: "/hr/creatDoc",
+// 	},
 
-	{
-		id: 2,
-		title: "Кадровое делопроизводство",
-		image: notFound,
-		link: "/hr/managment",
-	},
+// 	{
+// 		id: 2,
+// 		title: "Кадровое делопроизводство",
+// 		image: notFound,
+// 		link: "/hr/managment",
+// 	},
 
-	{
-		id: 3,
-		title: "Личная карточка сотрудника",
-		image: notFound,
-		link: "/hr/workerCard",
-	},
+// 	{
+// 		id: 3,
+// 		title: "Личная карточка сотрудника",
+// 		image: notFound,
+// 		link: "/hr/workerCard",
+// 	},
 
-	{
-		id: 4,
-		title: "Учет рабочего времени",
-		image: notFound,
-		link: "/hr/working-hours",
-	},
+// 	{
+// 		id: 4,
+// 		title: "Учет рабочего времени",
+// 		image: notFound,
+// 		link: "/hr/working-hours",
+// 	},
 
-	{
-		id: 5,
-		title: "Кадровая отчетность",
-		image: notFound,
-		link: "/hr/hrreport",
-	},
-];
+// 	{
+// 		id: 5,
+// 		title: "Кадровая отчетность",
+// 		image: notFound,
+// 		link: "/hr/hrreport",
+// 	},
+// ];
 const Hr: React.FC<ModulesListScheme> = () => {
 	const modulesList: ModulesListScheme[] = [
 		{
@@ -105,7 +106,7 @@ const Hr: React.FC<ModulesListScheme> = () => {
 		<main>
 			<NavigationOfModules list={modulesList} />
 			<div className="wrapper-submodules-card">
-				{subModulesList.map((e) => (
+				{modulesList.map((e) => (
 					<CardSubmodule key={e.id} item={e} />
 				))}
 			</div>

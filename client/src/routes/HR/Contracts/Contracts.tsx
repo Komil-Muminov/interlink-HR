@@ -7,7 +7,7 @@ import { getOrganizations } from "../../../API/services/organizations/getOrganiz
 import { queryClient } from "../../../API/hooks/queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { OrganizationScheme } from "../../../API/services/organizations/OrganizationScheme";
-import "../PrimaryDocs.css";
+import "../Hr.css";
 import "./Contracts.css";
 import NavigationSubmodules from "../../../UI/Navigation of Modules/NavigationOfModules";
 
