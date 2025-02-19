@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import Filter from "../../../components/Filter/Filter";
 import { dataFilter } from "../../../API/data/dataFilter";
 import Registry from "../../../components/Registry/Registry";
-import { Link, Outlet } from "react-router";
+import { Link } from "react-router";
 import { getOrganizations } from "../../../API/services/organizations/getOrganizations";
 import { queryClient } from "../../../API/hooks/queryClient";
 import { useQuery } from "@tanstack/react-query";
 import { OrganizationScheme } from "../../../API/services/organizations/OrganizationScheme";
-import "../Hr.css";
+import "../Modules.css";
 import "./Contracts.css";
 import NavigationSubmodules from "../../../UI/Navigation of Modules/NavigationOfModules";
 
@@ -61,7 +61,7 @@ const Contracts: React.FC = () => {
 		{
 			id: 1,
 			title: "Кадр",
-			link: "/hr/contracts",
+			link: "hr/contracts",
 		},
 		{
 			id: 2,
@@ -98,12 +98,12 @@ const Contracts: React.FC = () => {
 
 	return (
 		<main className="submodule-contracts">
-			<NavigationSubmodules list={submodulesList} currentList="Доверенность" />
+			<NavigationSubmodules list={submodulesList} currentList="Кадр" />
 			<section>
 				<h1 className="module-title">Реестр</h1>
 				<div className="panel-control-filter">
 					<Filter data={dataFilter} />
-					<Link to="/hr/contracts/create">
+					<Link to="/modules/hr/create">
 						<button>Добавить</button>
 					</Link>
 				</div>

@@ -10,8 +10,7 @@ const LazyAuthrozation = lazy(
 const LazyLogMe = lazy(() => import("./routes/Auth/Logme/Logme"));
 const LazyRegMe = lazy(() => import("./routes/Auth/Regme/Regme"));
 
-const LazyPrimaryDocs = lazy(() => import("./routes/HR/Hr"));
-
+const LazyModules = lazy(() => import("./routes/HR/Modules"));
 const LazyContracts = lazy(() => import("./routes/HR/Contracts/Contracts"));
 
 const LazyCreateContracts = lazy(
@@ -42,15 +41,22 @@ function App() {
 					<div className="app__content">
 						<Suspense fallback={<Loader />}>
 							<Routes>
-								<Route path="/primary-docs" element={<LazyPrimaryDocs />} />
-								{/* Contracts */}
-								<Route path="hr/contracts" element={<LazyContracts />} />
+								<Route path="/modules" element={<LazyModules />} />
 								<Route
-									path="hr/contracts/create"
+									path="/modules/hr/submodules"
+									element={<LazyModules />}
+								/>
+								{/* Contracts */}
+								<Route
+									path="/modules/hr/contracts"
+									element={<LazyContracts />}
+								/>
+								<Route
+									path="/modules/hr/create"
 									element={<LazyCreateContracts />}
 								/>
 								<Route
-									path="primary-docs/contracts/show/:id"
+									path="hr/contracts/show/:id"
 									element={<LazyShowContracts />}
 								/>
 

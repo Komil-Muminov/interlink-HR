@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavigationOfModules from "../../UI/Navigation of Modules/NavigationOfModules";
 import CardSubmodule from "../../UI/Card of Submodule/CardSubmodule";
 import submoduleImage from "../../assets/module-1.png";
 import notFound from "../../assets/notfound.png";
-import "./Hr.css";
+import { useLocation } from "react-router";
+import { SubModulesList } from "../HR/HrSubmodules/Submodules";
+import "./Modules.css";
 
 export interface ModulesListScheme {
 	id: number;
@@ -19,44 +21,7 @@ export interface SubmoduleProps {
 	link: string;
 }
 
-// Список подумодулей HR
-// const subModulesList: SubmoduleProps[] = [
-// 	{
-// 		id: 1,
-// 		title: "Констурктор документов",
-// 		image: notFound,
-// 		link: "/hr/creatDoc",
-// 	},
-
-// 	{
-// 		id: 2,
-// 		title: "Кадровое делопроизводство",
-// 		image: notFound,
-// 		link: "/hr/managment",
-// 	},
-
-// 	{
-// 		id: 3,
-// 		title: "Личная карточка сотрудника",
-// 		image: notFound,
-// 		link: "/hr/workerCard",
-// 	},
-
-// 	{
-// 		id: 4,
-// 		title: "Учет рабочего времени",
-// 		image: notFound,
-// 		link: "/hr/working-hours",
-// 	},
-
-// 	{
-// 		id: 5,
-// 		title: "Кадровая отчетность",
-// 		image: notFound,
-// 		link: "/hr/hrreport",
-// 	},
-// ];
-const Hr: React.FC<ModulesListScheme> = () => {
+const Modules: React.FC<ModulesListScheme> = () => {
 	const modulesList: ModulesListScheme[] = [
 		{
 			id: 1,
@@ -80,7 +45,7 @@ const Hr: React.FC<ModulesListScheme> = () => {
 			id: 4,
 			title: "Кадр",
 			image: notFound,
-			link: "/hr/contracts",
+			link: "/modules/hr/submodules",
 		},
 		{
 			id: 5,
@@ -102,16 +67,45 @@ const Hr: React.FC<ModulesListScheme> = () => {
 		},
 	];
 
+	const location = useLocation();
+	const [isSubmodules, setIsSubmodules] = useState<boolean>(true);
+	useEffect(() => {
+		if (location?.pathname === "/modules/hr/submodules") {
+			setIsSubmodules(true);
+		} else if (location?.pathname === "/modules") {
+			setIsSubmodules(false);
+		}
+	}, [location]);
 	return (
 		<main>
-			<NavigationOfModules list={modulesList} />
-			<div className="wrapper-submodules-card">
-				{modulesList.map((e) => (
-					<CardSubmodule key={e.id} item={e} />
-				))}
-			</div>
+			<>
+				<NavigationOfModules list={modulesList} />
+				{!isSubmodules ? (
+					<>
+						<div className="wrapper-submodules-card">
+							{modulesList.map((e) => (
+								<>
+									<CardSubmodule
+										isSubmodules={isSubmodules}
+										key={e.id}
+										item={e}
+									/>
+								</>
+							))}
+						</div>
+					</>
+				) : (
+					<div className="wrapper-submodules-card">
+						{SubModulesList.map((item) => (
+							<>
+								<CardSubmodule key={item.id} item={item} />
+							</>
+						))}
+					</div>
+				)}
+			</>
 		</main>
 	);
 };
 
-export default Hr;
+export default Modules;
