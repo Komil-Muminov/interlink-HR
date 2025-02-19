@@ -20,7 +20,7 @@ const Registry = ({ headersProps, rowsProps, status }: TProps) => {
 	const navigate = useNavigate();
 
 	const handleRowClick = (rowId: string) => {
-		if (location.pathname === "/hr/contracts") {
+		if (location.pathname === "/modules/hr/contracts") {
 			navigate(`/hr/contracts/show/${rowId}`); // Навигация на нужный путь
 		}
 	};
