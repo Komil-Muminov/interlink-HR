@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 					<div className="header__content">
 						{/* Логотип */}
 
-						<Link to="/primary-docs" className="header__logo-link">
+						<Link to="/modules" className="header__logo-link">
 							<div className="wrapper-header-logo">
 								<img
 									className="header__logo-img header__logo--img"

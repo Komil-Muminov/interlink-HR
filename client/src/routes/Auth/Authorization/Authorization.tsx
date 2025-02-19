@@ -17,7 +17,7 @@ const Authorization: React.FC = () => {
 		if (location.pathname === "/") {
 			navigate("/auth/logme");
 		}
-	}, [location.pathname === "/"]);
+	}, [location.pathname]);
 	return (
 		<div className="authorization__content">
 			<Button className="btn" onClick={handleSelect}>

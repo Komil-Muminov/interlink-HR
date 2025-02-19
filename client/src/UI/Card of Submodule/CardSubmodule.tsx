@@ -1,12 +1,15 @@
-import { ModulesListScheme } from "../../routes/HR/Hr";
+// import { ModulesListScheme } from "../../routes/HR/Modules";
+import { SubmodulesScheme } from "../../routes/HR/HrSubmodules/Submodules";
 import { Link } from "react-router";
 import "./CardSubmodule.css";
 
-interface TProps {
-	item: ModulesListScheme;
-}
+// interface TProps {
+// 	item: SubmodulesScheme;
+// 	isSubmodules: boolean;
+// }
 
-const CardSubmodule = ({ item }: TProps) => {
+// Вывести правильно подмодули кадра
+const CardSubmodule = ({ item }) => {
 	return (
 		<Link to={`${item.link}`} className="card-submodule">
 			<div className="image">
