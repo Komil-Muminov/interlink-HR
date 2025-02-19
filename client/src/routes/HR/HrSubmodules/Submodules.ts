@@ -11,7 +11,7 @@ export const SubModulesList: SubmodulesScheme[] = [
 		id: 1,
 		title: "Констурктор документов",
 		image: notFound,
-		link: "/hr/creatDoc",
+		link: "/modules/hr/contracts",
 	},
 
 	{
