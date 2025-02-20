@@ -25,7 +25,7 @@ export const SubModulesList: SubmodulesScheme[] = [
 		id: 3,
 		title: "Личная карточка сотрудника",
 		image: notFound,
-		link: "/hr/workerCard",
+		link: "/modules/hr/workerCard",
 	},
 
 	{
