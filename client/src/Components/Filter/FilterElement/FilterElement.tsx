@@ -1,7 +1,6 @@
 import React from "react";
 import "./FilterElement.css";
 import { DataFilterType } from "../../../API/data/dataFilter";
-
 interface TProps {
 	item: DataFilterType;
 }
