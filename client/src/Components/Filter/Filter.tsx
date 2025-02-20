@@ -7,7 +7,7 @@ interface TProps {
 	data: DataFilterType[];
 }
 
-const Filter = ({ data }: TProps) => {
+const Filter: React.FC<TProps> = ({ data }: TProps) => {
 	return (
 		<ul className="wrapper-filter">
 			{data.map((e) => {

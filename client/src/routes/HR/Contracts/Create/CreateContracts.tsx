@@ -14,6 +14,8 @@ import { createOrganization } from "../../../../API/services/organizations/creat
 import { useValid } from "../../../../API/hooks/useValid";
 import { useScroll } from "../../../../API/hooks/useScroll";
 import "./CreateContracts.css";
+import Filter from "../../../../components/Filter/Filter";
+import { dataFilter } from "../../../../API/data/dataFilter";
 
 // import { generateUniqueId } from "../../../../API/hooks/generateUniqueId";
 // import FindInPageIcon from "@mui/icons-material/FindInPage";
@@ -163,7 +165,8 @@ const CreateContracts = () => {
 				saveButtonState={!isValidInn ? true : false}
 				// editButtonState
 			/>
-			<TitleSection title="Данные организации" />
+			<Filter data={dataFilter} />
+			<TitleSection title="Конструктор" />
 			<section>
 				<form
 					onSubmit={handleSubmit(handleCheckInnSubmit)}
