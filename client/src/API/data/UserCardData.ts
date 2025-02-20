@@ -1,5 +1,6 @@
 export interface UserCardData {
-	id: string | undefined;
+	id?: string | number;
 	fullname: string | undefined;
 	position: string | undefined;
+	contacts?: string | number;
 }

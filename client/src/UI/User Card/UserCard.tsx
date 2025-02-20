@@ -1,8 +1,8 @@
 import { Avatar, Button } from "@mui/material";
-import { UserCardData } from "../../../API/data/UserCardData";
+import { UserCardData } from "../../API/data/UserCardData";
 import "./UserCard.css";
 
-const UserCard: React.FC<UserCardData> = ({ fullname, position }) => {
+const UserCard: React.FC<UserCardData> = ({ fullname, position, contacts }) => {
 	return (
 		<div className="user-card">
 			<div className="content">
@@ -12,6 +12,7 @@ const UserCard: React.FC<UserCardData> = ({ fullname, position }) => {
 				/>
 				<p className="title">{fullname || "Пользователь"}</p>
 				<p className="desc">{position}</p>
+				<p className="desc">{contacts}</p>
 				<div className="modules-info">
 					<Button variant="outlined">Карточка образцов подписей</Button>
 					<Button variant="outlined">Корреспонденция</Button>

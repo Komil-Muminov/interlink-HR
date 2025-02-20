@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useRef } from "react";
 import "./App.css";
 import { Loader } from "./UI/Loader/Loader";
 import Header from "./Components/Header/Header";
+import Usercard from "./routes/HR/HrSubmodules/UserCard/UserCard";
 
 const LazyAuthrozation = lazy(
 	() => import("./routes/Auth/Authorization/Authorization"),
@@ -51,10 +52,14 @@ function App() {
 									path="/modules/hr/contracts"
 									element={<LazyContracts />}
 								/>
+
+								<Route path="/modules/hr/workerCard" element={<Usercard />} />
+								{/* create */}
 								<Route
 									path="/modules/hr/create"
 									element={<LazyCreateContracts />}
 								/>
+								{/* show */}
 								<Route
 									path="hr/contracts/show/:id"
 									element={<LazyShowContracts />}
