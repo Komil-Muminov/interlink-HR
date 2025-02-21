@@ -52,7 +52,7 @@ const WorkerCard: React.FC<{
 								classname: "createWorker-inp workerCard-tel",
 							},
 						]}
-						submitText="Добавить"
+						submitText="Подтвердить"
 						sbtClassName="workerCard-sbt"
 						onSubmit={onsubmit}
 					/>
