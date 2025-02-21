@@ -41,7 +41,7 @@ export const Form: React.FC<FormProps> = ({
 				</>
 			))}
 
-			<Button type="submit" className={submitClassname}>
+			<Button type="submit" className={`btn-mui`}>
 				{submitText}
 			</Button>
 		</form>
