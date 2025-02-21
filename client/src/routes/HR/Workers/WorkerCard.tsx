@@ -1,6 +1,7 @@
 import { Form } from "../../../UI/Form/Form";
 import TitleSection from "../../../UI/Title of Section/TitleSection";
 import "./WorkerCard.css";
+import "../../../index.css";
 const WorkerCard: React.FC<{
 	item: { [key: string]: string | unknown };
 }> = ({ item }) => {
@@ -53,7 +54,7 @@ const WorkerCard: React.FC<{
 							},
 						]}
 						submitText="Подтвердить"
-						sbtClassName="workerCard-sbt"
+						sbtClassName="createWorker-sbt btn-mui"
 						onSubmit={onsubmit}
 					/>
 				</div>
