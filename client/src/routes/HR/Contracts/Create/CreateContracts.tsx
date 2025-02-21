@@ -149,7 +149,7 @@ const CreateContracts = () => {
 	// Подтвердить данные при создание дока (AMI)
 	// const [confirm, setConfirm] = useState<boolean>(false);
 	// useEffect(() => {
-	// Если confirm то рендирить(или переход) надо компонент согласование
+	// Если confirm то рендирить(или переход) надо в компонент согласование
 	// }, [confirm]);
 
 	// ScrollTo

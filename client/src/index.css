@@ -410,3 +410,14 @@ h3 {
 	margin: 0;
 	padding: 0;
 }
+
+.btn-mui {
+	background-color: rgba(25, 118, 210, 0.04) !important;
+	border-radius: 10px !important;
+	transition: background 0.2s ease-in-out !important;
+	margin-top: auto !important;
+}
+
+.btn-mui:hover {
+	background: rgba(25, 118, 210, 0.1) !important;
+}

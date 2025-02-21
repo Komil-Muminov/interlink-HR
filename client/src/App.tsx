@@ -4,6 +4,8 @@ import "./App.css";
 import { Loader } from "./UI/Loader/Loader";
 import Header from "./Components/Header/Header";
 import Usercard from "./routes/HR/HrSubmodules/UserCard/UserCard";
+import WorkersList from "./routes/HR/Workers/WorkersList";
+import CreateWorker from "./routes/HR/Workers/CreateWorker";
 
 const LazyAuthrozation = lazy(
 	() => import("./routes/Auth/Authorization/Authorization"),
@@ -78,6 +80,8 @@ function App() {
 						</Suspense>
 					</div>
 				</div>
+				{/* <WorkersList /> */}
+				<CreateWorker />
 			</main>
 		</>
 	);

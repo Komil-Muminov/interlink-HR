@@ -1,17 +1,20 @@
 import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
+import "../../index.css";
 
 interface FormProps {
 	inputs: {
-		name: string;
+		name?: string;
 		type?: string;
 		placeholder?: string;
 		classname?: string;
+		value?: unknown;
+		disabled?: boolean;
 	}[];
 	classname?: string;
-	onSubmit: (data: unknown) => void;
+	onSubmit?: (data: unknown) => void;
 	submitText?: string;
-	submitClassname?: string;
+	sbtClassName?: string;
 }
 
 export const Form: React.FC<FormProps> = ({
@@ -19,7 +22,7 @@ export const Form: React.FC<FormProps> = ({
 	classname,
 	onSubmit,
 	submitText,
-	submitClassname,
+	sbtClassName,
 }) => {
 	const {
 		register,
@@ -29,19 +32,23 @@ export const Form: React.FC<FormProps> = ({
 
 	return (
 		<form className={classname} onSubmit={handleSubmit(onSubmit)}>
-			{inputs?.map(({ name, type, placeholder, classname }) => (
-				<>
-					<input
-						{...register(name, { required: `Поле ${name} обязательно` })}
-						type={type || "text"}
-						placeholder={placeholder || "Введите данные"}
-						className={classname}
-					/>
-					{errors[name] && <span>{errors[name]?.message}</span>}
-				</>
-			))}
+			{inputs?.map(
+				({ name, type, placeholder, classname, value, disabled }) => (
+					<>
+						<input
+							{...register(name, { required: `Поле ${name} обязательно` })}
+							type={type || "text"}
+							placeholder={placeholder || "Введите данные"}
+							className={`input ${classname} `}
+							disabled={disabled}
+							value={value}
+						/>
+						{errors[name] && <span>{errors[name]?.message}</span>}
+					</>
+				),
+			)}
 
-			<Button type="submit" className={`btn-mui`}>
+			<Button type="submit" className={`${sbtClassName}`}>
 				{submitText}
 			</Button>
 		</form>

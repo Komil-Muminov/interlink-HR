@@ -51,13 +51,7 @@ const Contracts: React.FC = () => {
 		org.status, // Статус
 	]);
 
-	interface SubModulesListScheme {
-		id: number;
-		title: string;
-		link: string;
-	}
-
-	const submodulesList: SubModulesListScheme[] = [
+	const submodulesList: { id: number; title: string; link: string }[] = [
 		{
 			id: 1,
 			title: "Кадр",
