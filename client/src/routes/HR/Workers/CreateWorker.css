@@ -7,13 +7,15 @@
 
 .creatWorker__form {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
 	gap: 10px;
 }
 
 .createWorker-inp {
 	padding: 10px;
 	border-radius: 10px;
+	width: calc((100% - 10px) / 2);
 }
 
 .creatWorker-send-props {

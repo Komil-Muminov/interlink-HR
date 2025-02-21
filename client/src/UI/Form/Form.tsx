@@ -10,6 +10,7 @@ interface FormProps {
 		classname?: string;
 		value?: unknown;
 		disabled?: boolean;
+		options?: string[];
 	}[];
 	classname?: string;
 	onSubmit?: (data: unknown) => void;
@@ -33,17 +34,41 @@ export const Form: React.FC<FormProps> = ({
 	return (
 		<form className={classname} onSubmit={handleSubmit(onSubmit)}>
 			{inputs?.map(
-				({ name, type, placeholder, classname, value, disabled }) => (
+				({ name, type, placeholder, classname, value, disabled, options }) => (
 					<>
-						<input
-							{...register(name, { required: `Поле ${name} обязательно` })}
-							type={type || "text"}
-							placeholder={placeholder || "Введите данные"}
-							className={`input ${classname} `}
-							disabled={disabled}
-							value={value}
-						/>
-						{errors[name] && <span>{errors[name]?.message}</span>}
+						{type === "select" ? (
+							<>
+								<select
+									{...register(name, {
+										required: true,
+										message: "Выберите значение",
+									})}
+									className={classname}
+									id="name"
+								>
+									<option value={``}></option>
+									{options
+										? options.map((item) => (
+												<>
+													<option value={item}>{item}</option>
+												</>
+										  ))
+										: null}
+								</select>
+							</>
+						) : (
+							<>
+								<input
+									{...register(name, { required: `Поле ${name} обязательно` })}
+									type={type || "text"}
+									placeholder={placeholder || "Введите данные"}
+									className={`input ${classname} `}
+									disabled={disabled}
+									value={value}
+								/>
+								{errors[name] && <span>{errors[name]?.message}</span>}
+							</>
+						)}
 					</>
 				),
 			)}

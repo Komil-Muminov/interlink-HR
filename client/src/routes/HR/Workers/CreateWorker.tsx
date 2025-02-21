@@ -6,7 +6,7 @@ import { queryClient } from "../../../API/hooks/queryClient";
 import { useEffect, useState } from "react";
 import UserCard from "../../../UI/User Card/UserCard";
 import { Input } from "@mui/material";
-import './CreateWorker.css'
+import "./CreateWorker.css";
 import WorkerCard from "./WorkerCard";
 
 const CreateWorker: React.FC = () => {
@@ -29,21 +29,7 @@ const CreateWorker: React.FC = () => {
 		console.log(worker);
 	}, [worker]);
 
-	// Если нужно на сервер сохранить данные
-	// const createWorkerMutation = useMutation(
-	// 	{
-	// 		mutationFn: () => {
-	// 			return fetch(`http://localhost:3000/createUser`, {
-	// 				method: "POST",
-	// 				headers: {
-	// 					"Content-Type": "application/json",
-	// 				},
-	// 				body: JSON.stringify(worker),
-	// 			});
-	// 		},
-	// 	},
-	// 	queryClient,
-	// );
+	// Если нужно на сервер сохранить данные через useMutation
 	return (
 		<div className="creatWorker___contnet">
 			<Form
@@ -55,18 +41,38 @@ const CreateWorker: React.FC = () => {
 						placeholder: "Введите имя нового сотрудника",
 					},
 					{
-						name: "inn",
+						name: "organization",
+						placeholder: "Введите организацию сотрудника",
 						classname: "createWorker-inp",
-						placeholder: "Введите ИНН нового сотрудника",
 					},
 					{
 						name: "position",
 						placeholder: "Введите позицию сотрудника",
 						classname: "createWorker-inp",
 					},
+
+					{
+						name: "email",
+						placeholder: "Введите email сотрудника",
+						classname: "createWorker-inp",
+					},
+
+					{
+						name: "tel",
+						placeholder: "Введите номер телефон сотрудника",
+						classname: "createWorker-inp",
+					},
+
+					{
+						name: "status",
+						placeholder: "Введите статус сотрудника",
+						classname: "createWorker-inp",
+						type: "select",
+						options: ["Актив", "Пассив"],
+					},
 				]}
 				submitText="Добавить"
-				sbtClassName="btn-mui"
+				sbtClassName="createWorker-sbt btn-mui"
 				onSubmit={onsubmit}
 			/>
 			{/* Доработать с userCard или по другому */}

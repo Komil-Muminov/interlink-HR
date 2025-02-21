@@ -1,0 +1,6 @@
+.WorkerCard__content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	/* Можно было задать mb компоненту TitleSection */
+}
