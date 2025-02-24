@@ -81,9 +81,11 @@ export const Form: React.FC<FormProps> = ({
 				),
 			)}
 
-			<Button type="submit" className={sbtClassName}>
-				{submitText}
-			</Button>
+			{onSubmit && (
+				<Button type="submit" className={sbtClassName}>
+					{submitText}
+				</Button>
+			)}
 		</form>
 	);
 };

@@ -19,7 +19,7 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 	return (
 		<>
 			<div className="worker-content worker__personal-content">
-				<TitleSection title="Данные пользователя" />
+				<TitleSection title="Данные пользователя 2" />
 				<Form
 					inputs={[
 						{
@@ -72,6 +72,7 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 					]}
 					classname="workerPersonal-form"
 				/>
+
 				<TitleSection title="Личная информация" />
 				<Form
 					inputs={[
@@ -80,18 +81,27 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 							value: validWorker?.bDate,
 							classname: "workerPersonal-inp",
 							label: "Дата рождения",
+							disabled: true,
 						},
-						{ name: "inn", value: validWorker?.inn, label: "ИНН" },
+						{
+							name: "inn",
+							value: validWorker?.inn,
+							label: "ИНН",
+							disabled: true,
+							classname: "workerPersonal-inp",
+						},
 						{
 							name: "living",
 							value: validWorker?.living,
 							classname: "workerPersonal-inp",
+							disabled: true,
 							label: "Адрес проживания",
 						},
 						{
 							name: "passportId",
 							value: validWorker?.passportId,
 							classname: "workerPersonal-inp",
+							disabled: true,
 							label: "Серия и номер паспорта",
 						},
 					]}

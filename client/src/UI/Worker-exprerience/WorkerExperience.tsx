@@ -50,7 +50,7 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 
 			<div className="workerExperience__card-content">
 				<div className="workerExperience-card">
-					<h3 className="work__experience-title">Опыт работы</h3>
+					<h3 className="work__experience-title">Текущая работа</h3>
 					<Form
 						inputs={[
 							{
@@ -90,7 +90,7 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 				</div>
 
 				<div className="workerExperience-card">
-					<h3 className="prevjob-title">PreJob</h3>
+					<h3 className="prevjob-title">Предедущая работа</h3>
 					<Form
 						inputs={[
 							{
