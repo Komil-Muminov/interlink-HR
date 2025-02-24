@@ -11,6 +11,9 @@
 	flex-wrap: wrap;
 	gap: 10px;
 }
+.creatWorker__form select {
+	width: 100%;
+}
 
 .createWorker-inp {
 	padding: 10px;

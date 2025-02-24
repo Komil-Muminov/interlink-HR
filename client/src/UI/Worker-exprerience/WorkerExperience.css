@@ -1,0 +1,70 @@
+.workerExperience-form {
+	display: flex;
+}
+.worker__education-title {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.work__experience-title {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.prevjob-title {
+	color: red;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.work-eperience-file {
+	background: rgba(161, 161, 161, 0.134);
+	border-radius: 10px;
+	max-width: max-content;
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px dashed black;
+}
+
+.file-label {
+	font-size: 40px;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.file-input {
+	display: none;
+}
+
+.worker__experience {
+	display: flex;
+	flex-direction: column;
+}
+
+.workerExperience__card-content {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+.workerExperience-form {
+	display: flex;
+	flex-direction: column;
+}
+.workerExperience-card {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+	padding: 10px;
+	border: 1px solid gray;
+	width: calc((100% - 10px) / 2);
+	border-radius: 10px;
+}
+
+.workerPersonal-inp {
+	min-width: 600px;
+}
