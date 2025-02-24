@@ -38,13 +38,13 @@ const Modules: React.FC<ModulesListScheme> = () => {
     {
       id: 3,
       title: "Первичые документы",
-      image: submoduleImage,
+      image: notFound,
       link: "/primary-docs/contracts",
     },
     {
       id: 4,
       title: "Кадр",
-      image: notFound,
+      image: submoduleImage,
       link: "/modules/hr/submodules",
     },
     {
