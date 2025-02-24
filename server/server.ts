@@ -18,8 +18,8 @@ app.use("/organizations", organizationsRoutes);
 // app.use(router);
 app.use(express.static("uploads"));
 
-const PORT = 3000;
+const PORT = 3001;
 
 app.listen(PORT, () => {
-	console.log(`Сервер запущен на http://localhost:${PORT} порту`);
+  console.log(`Сервер запущен на http://localhost:${PORT} порту`);
 });
