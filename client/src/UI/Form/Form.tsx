@@ -8,7 +8,8 @@ interface FormProps {
 		type?: string;
 		placeholder?: string;
 		classname?: string;
-		value?: unknown;
+		value?: string;
+		label?: string | undefined;
 		disabled?: boolean;
 		options?: string[];
 	}[];
@@ -34,7 +35,16 @@ export const Form: React.FC<FormProps> = ({
 	return (
 		<form className={classname} onSubmit={handleSubmit(onSubmit)}>
 			{inputs?.map(
-				({ name, type, placeholder, classname, value, disabled, options }) => (
+				({
+					name,
+					type,
+					placeholder,
+					classname,
+					value,
+					label,
+					disabled,
+					options,
+				}) => (
 					<>
 						{type === "select" ? (
 							<>
@@ -44,7 +54,7 @@ export const Form: React.FC<FormProps> = ({
 										message: "Выберите значение",
 									})}
 									className={classname}
-									id="name"
+									id={name}
 								>
 									<option value={``}></option>
 									{options
@@ -58,6 +68,7 @@ export const Form: React.FC<FormProps> = ({
 							</>
 						) : (
 							<>
+								<label htmlFor={name}>{label}</label>
 								<input
 									{...register(name, { required: `Поле ${name} обязательно` })}
 									type={type || "text"}

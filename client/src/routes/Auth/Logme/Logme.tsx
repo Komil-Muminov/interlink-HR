@@ -1,9 +1,10 @@
 import { Form } from "../../../UI/Form/Form";
 import { useMutation } from "@tanstack/react-query";
-import "./Logme.css";
 import { useAuth } from "../../../API/hooks/useAuth";
 import { useNavigate } from "react-router";
 import { queryClient } from "../../../API/hooks/queryClient";
+import "./Logme.css";
+
 // RTQ
 const Logme: React.FC = () => {
 	const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Logme: React.FC = () => {
 				]}
 				classname="auth-form logme__form"
 				submitText="Войти"
-				submitClassname="btn-mui regme__sbt"
+				submitClassname="btn-mui logme__sbt"
 				onSubmit={onSubmit}
 			></Form>
 		</>
