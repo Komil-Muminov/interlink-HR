@@ -61,6 +61,10 @@ function App() {
                   path="/modules/hr/submodules/personnel-records-management"
                   element={<LazyPersonnelRecordsManagement />}
                 />
+                <Route
+                  path="/modules/hr/submodules/employee-personal-card"
+                  element={<CreateWorker />}
+                />
 
                 <Route path="/modules/hr/workerCard" element={<Usercard />} />
                 {/* create */}
@@ -87,8 +91,6 @@ function App() {
             </Suspense>
           </div>
         </div>
-        {/* <WorkersList /> */}
-        <CreateWorker />
       </main>
     </>
   );
