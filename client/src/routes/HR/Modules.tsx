@@ -76,6 +76,7 @@ const Modules: React.FC<ModulesListScheme> = () => {
       setIsSubmodules(false);
     }
   }, [location]);
+  
   return (
     <main>
       <>

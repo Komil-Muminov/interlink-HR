@@ -9,36 +9,29 @@ export interface SubmodulesScheme {
 export const SubModulesList: SubmodulesScheme[] = [
   {
     id: 1,
-    title: "Констурктор документов",
-    image: notFound,
-    link: "/modules/hr/submodules/contracts",
-  },
-
-  {
-    id: 2,
     title: "Кадровое делопроизводство",
     image: notFound,
     link: "/modules/hr/submodules/personnel-records-management",
   },
 
   {
-    id: 3,
+    id: 2,
     title: "Личная карточка сотрудника",
     image: notFound,
-    link: "/modules/hr/submodules/employee-personal-card",
+    link: "/modules/hr/submodules/employee-personal-card/create",
     // link: "/modules/hr/workerCard",
     // link: "/modules/hr/create",
   },
 
   {
-    id: 4,
+    id: 3,
     title: "Учет рабочего времени",
     image: notFound,
     link: "/modules/hr/submodules/working-hours",
   },
 
   {
-    id: 5,
+    id: 4,
     title: "Кадровая отчетность",
     image: notFound,
     link: "/modules//hr/submodules/report",
