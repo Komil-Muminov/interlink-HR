@@ -1,0 +1,6 @@
+.create-personnel-records-management {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px 0;
+}
