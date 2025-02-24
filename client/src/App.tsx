@@ -4,87 +4,93 @@ import "./App.css";
 import { Loader } from "./UI/Loader/Loader";
 import Header from "./Components/Header/Header";
 import Usercard from "./routes/HR/HrSubmodules/UserCard/UserCard";
-import WorkersList from "./routes/HR/Workers/WorkersList";
-import CreateWorker from "./routes/HR/Workers/CreateWorker";
+import WorkersList from "./routes/HR/Emploee Personal Card/WorkersList";
+import CreateWorker from "./routes/HR/Emploee Personal Card/CreateEmploeePersonalCard";
 
 const LazyAuthrozation = lazy(
-	() => import("./routes/Auth/Authorization/Authorization"),
+  () => import("./routes/Auth/Authorization/Authorization")
 );
 const LazyLogMe = lazy(() => import("./routes/Auth/Logme/Logme"));
 const LazyRegMe = lazy(() => import("./routes/Auth/Regme/Regme"));
 
 const LazyModules = lazy(() => import("./routes/HR/Modules"));
 const LazyContracts = lazy(() => import("./routes/HR/Contracts/Contracts"));
+const LazyPersonnelRecordsManagement = lazy(
+  () =>
+    import(
+      "./routes/HR/Personnel Records Management/PersonnelRecordsManagement"
+    )
+);
 
 const LazyCreateContracts = lazy(
-	() => import("./routes/HR/Contracts/Create/CreateContracts"),
+  () => import("./routes/HR/Contracts/Create/CreateContracts")
 );
 const LazyShowContracts = lazy(
-	() => import("./routes/HR/Contracts/Show/ShowContracts"),
+  () => import("./routes/HR/Contracts/Show/ShowContracts")
 );
 // const LazyOrgcard = lazy(() => import("./routes/Orgcard/Orgcard"));
 function App() {
-	const location = useLocation();
+  const location = useLocation();
 
-	useEffect(() => {
-		if (
-			location.pathname === "/auth/logme" ||
-			location.pathname === "/auth/regme"
-		) {
-			document.querySelector(".section-offset")?.classList.add("main-bg");
-		} else {
-			document.querySelector(".section-offset")?.classList.remove("main-bg");
-		}
-	}, [location.pathname]);
-	return (
-		<>
-			<Header />
-			<main className="section-offset">
-				<div className="container">
-					<div className="app__content">
-						<Suspense fallback={<Loader />}>
-							<Routes>
-								<Route path="/modules" element={<LazyModules />} />
-								<Route
-									path="/modules/hr/submodules"
-									element={<LazyModules />}
-								/>
-								{/* Contracts */}
-								<Route
-									path="/modules/hr/contracts"
-									element={<LazyContracts />}
-								/>
+  useEffect(() => {
+    if (
+      location.pathname === "/auth/logme" ||
+      location.pathname === "/auth/regme"
+    ) {
+      document.querySelector(".section-offset")?.classList.add("main-bg");
+    } else {
+      document.querySelector(".section-offset")?.classList.remove("main-bg");
+    }
+  }, [location.pathname]);
+  return (
+    <>
+      <Header />
+      <main className="section-offset">
+        <div className="container">
+          <div className="app__content">
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route path="/modules" element={<LazyModules />} />
+                <Route
+                  path="/modules/hr/submodules"
+                  element={<LazyModules />}
+                />
+                {/* Contracts */}
+                <Route
+                  path="/modules/hr/submodules/personnel-records-management"
+                  element={<LazyPersonnelRecordsManagement />}
+                />
 
-								<Route path="/modules/hr/workerCard" element={<Usercard />} />
-								{/* create */}
-								<Route
-									path="/modules/hr/create"
-									element={<LazyCreateContracts />}
-								/>
-								{/* show */}
-								<Route
-									path="hr/contracts/show/:id"
-									element={<LazyShowContracts />}
-								/>
+                <Route path="/modules/hr/workerCard" element={<Usercard />} />
+                {/* create */}
+                <Route
+                  path="/modules/hr/create"
+                  element={<LazyCreateContracts />}
+                />
+                {/* show */}
+                <Route
+                  path="hr/contracts/show/:id"
+                  element={<LazyShowContracts />}
+                />
 
-								{/* Main route */}
-								<Route path="/" element={<LazyAuthrozation />} />
-								{/* Authorization */}
-								<Route path="/auth" element={<LazyAuthrozation />}>
-									<Route path="regme" element={<LazyRegMe />} />
-									<Route path="logme" element={<LazyLogMe />} />
-								</Route>
-								{/* Error page */}
-								<Route path="*" element={<h2>Страница не существует</h2>} />
-							</Routes>
-						</Suspense>
-					</div>
-				</div>
-				{/* <WorkersList /> */}
-				<CreateWorker />
-			</main>
-		</>
-	);
+                {/* Main route */}
+                <Route path="/" element={<LazyAuthrozation />} />
+                {/* Authorization */}
+                <Route path="/auth" element={<LazyAuthrozation />}>
+                  <Route path="regme" element={<LazyRegMe />} />
+                  <Route path="logme" element={<LazyLogMe />} />
+                </Route>
+                {/* Error page */}
+                <Route path="*" element={<h2>Страница не существует</h2>} />
+              </Routes>
+            </Suspense>
+          </div>
+        </div>
+        {/* <WorkersList /> */}
+        <CreateWorker />
+      </main>
+    </>
+  );
 }
 
 export default App;
