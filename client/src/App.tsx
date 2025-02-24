@@ -4,8 +4,9 @@ import "./App.css";
 import { Loader } from "./UI/Loader/Loader";
 import Header from "./Components/Header/Header";
 import Usercard from "./routes/HR/HrSubmodules/UserCard/UserCard";
-import WorkersList from "./routes/HR/Emploee Personal Card/WorkersList";
-import CreateWorker from "./routes/HR/Emploee Personal Card/CreateEmploeePersonalCard";
+
+import WorkersList from "./routes/HR/Workers/WorkersList";
+import CreateWorker from "./routes/HR/Workers/Create/CreateWorker";
 
 const LazyAuthrozation = lazy(
   () => import("./routes/Auth/Authorization/Authorization")
