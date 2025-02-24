@@ -33,7 +33,7 @@ const Header: React.FC = () => {
   };
 
   // DefName
-  const defName = "Пользователь";
+  const defName = "Зиёева Адиба";
 
   return (
     <>
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
                       className="wrapper-profile"
                       onClick={handleOpenUserMenu}
                     >
-                      <Avatar alt="Mahmud Norov" src={defName} />
+                      <Avatar alt={defName} src={defName} />
                       <p className="header__right-uname">{defName}</p>
                     </Button>
                   </div>
