@@ -22,6 +22,7 @@
 .auth-form {
 	display: flex;
 	flex-direction: column;
+	align-self: center;
 	gap: 15px;
 	height: 100%;
 }

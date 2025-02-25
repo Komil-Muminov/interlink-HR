@@ -82,7 +82,7 @@ export const Form: React.FC<FormProps> = ({
 			)}
 
 			{onSubmit && (
-				<Button type="submit" className={sbtClassName}>
+				<Button type="submit" className={`${sbtClassName} btn-mui`}>
 					{submitText}
 				</Button>
 			)}
