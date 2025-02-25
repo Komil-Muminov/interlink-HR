@@ -40,7 +40,7 @@ const Logme: React.FC = () => {
 				]}
 				classname="auth-form logme__form"
 				submitText="Войти"
-				submitClassname="btn-mui logme__sbt"
+				submitClassname="btn-mui"
 				onSubmit={onSubmit}
 			></Form>
 		</>

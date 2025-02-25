@@ -3,67 +3,113 @@ import TitleSection from "../Title of Section/TitleSection";
 import { useConfirm } from "../../API/hooks/useConfirm";
 import WorkerExprerience from "../Worker-exprerience/WorkerExperience";
 import { WorkerData, IWorker } from "../../API/data/Workers";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "./WorkerPersolan.css";
 
-const WorkerPersonal: React.FC<{ worker: string }> = ({ worker }) => {
+const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
+	worker,
+}) => {
 	const { handleToggle, toggle } = useConfirm();
-	const findWorker = WorkerData.find((item) => item.fname === worker);
-	console.log(findWorker);
+	const validWorker = WorkerData.find((item) => item.fname === worker.name);
+	console.log(validWorker);
+	useEffect(() => {
+		console.log(validWorker);
+		console.log(typeof validWorker);
+	}, [worker]);
 	return (
-		<div className="worker-content worker__personal-content">
-			<TitleSection title="Личная информация" />
-			<Form
-				inputs={[
-					{
-						name: "education-level",
-						value: worker,
-						label: "ФИО",
-						disabled: true,
-					},
+		<>
+			<div className="worker-content worker__personal-content">
+				<TitleSection title="Данные пользователя 2" />
+				<Form
+					inputs={[
+						{
+							name: "name",
+							classname: "workerPersonal-inp",
+							value: worker?.name,
+							disabled: true,
+							label: "Имя сотрудника",
+						},
 
-					{
-						name: "education-level",
-						value: findWorker?.bDate,
-						label: "Дата рождения",
-						disabled: true,
-					},
+						{
+							name: "position",
+							value: validWorker?.position,
+							classname: "workerPersonal-inp",
+							disabled: true,
+							label: "Должность",
+						},
 
-					{
-						name: "education-level",
-						value: findWorker?.email,
-						label: "Электронная почта",
-						disabled: true,
-					},
+						{
+							name: "org",
+							value: validWorker?.org,
+							classname: "workerPersonal-inp",
+							disabled: true,
+							label: "Организация",
+						},
 
-					{
-						name: "education-level",
-						value: findWorker?.citizenship,
-						label: "Гражданство",
-						disabled: true,
-					},
+						{
+							name: "email",
+							value: validWorker?.email,
+							classname: "workerPersonal-inp",
+							disabled: true,
+							label: "Электронная почта",
+						},
 
-					{
-						name: "education-level",
-						value: findWorker?.status,
-						label: "Статус",
-						disabled: true,
-					},
-					{
-						name: "position",
-						value: findWorker?.position,
-						disabled: true,
-						label: "Должность",
-					},
-					{
-						name: "org",
-						value: findWorker?.org,
-						disabled: true,
-						label: "Организация",
-					},
-				]}
-			/>
-			<button onClick={handleToggle}>confirm</button>
-		</div>
+						{
+							name: "tel",
+							value: validWorker?.tel,
+							classname: "workerPersonal-inp",
+							disabled: true,
+							label: "Телефон",
+						},
+
+						{
+							name: "status",
+							value: validWorker?.currJobStatus,
+							label: "Статус",
+							disabled: true,
+							classname: "workerPersonal-inp",
+						},
+					]}
+					classname="workerPersonal-form"
+				/>
+
+				<TitleSection title="Личная информация" />
+				<Form
+					inputs={[
+						{
+							name: "bdate",
+							value: validWorker?.bDate,
+							classname: "workerPersonal-inp",
+							label: "Дата рождения",
+							disabled: true,
+						},
+						{
+							name: "inn",
+							value: validWorker?.inn,
+							label: "ИНН",
+							disabled: true,
+							classname: "workerPersonal-inp",
+						},
+						{
+							name: "living",
+							value: validWorker?.living,
+							classname: "workerPersonal-inp",
+							disabled: true,
+							label: "Адрес проживания",
+						},
+						{
+							name: "passportId",
+							value: validWorker?.passportId,
+							classname: "workerPersonal-inp",
+							disabled: true,
+							label: "Серия и номер паспорта",
+						},
+					]}
+					classname="workerPersonal-form"
+				/>
+			</div>
+			<WorkerExprerience worker={worker} />
+		</>
 	);
 };
 export default WorkerPersonal;
