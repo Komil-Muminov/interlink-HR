@@ -1,12 +1,53 @@
+import React, { useState } from "react";
 import { Form } from "../Form/Form";
 import TitleSection from "../Title of Section/TitleSection";
-import { useConfirm } from "../../API/hooks/useConfirm";
 import { WorkerData } from "../../API/data/Workers";
 import "../Worker-personal/WorkerPersolan.css";
 import "./WorkerExperience.css";
 
-const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
-	const validWorker = WorkerData.find((item) => item.fname === worker.name);
+interface WorkerExperienceProps {
+	worker: string;
+}
+
+const uploadUrl = "http://localhost:3000/users/worker-card";
+
+const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
+	// Ищем работника по имени (worker — строка)
+	const validWorker = WorkerData.find((item) => item.fname === worker);
+
+	// Состояния для загрузки файлов
+	const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
+	const [uploadStatus, setUploadStatus] = useState("");
+
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSelectedFiles(e.target.files);
+	};
+
+	const handleUpload = async () => {
+		if (!selectedFiles || !selectedFiles.length) {
+			setUploadStatus("Выберите файлы для загрузки.");
+			return;
+		}
+
+		const formData = new FormData();
+		// Преобразуем FileList в массив с помощью spread-оператора
+		[...selectedFiles].forEach((file) => formData.append("worker-card", file));
+
+		try {
+			const response = await fetch(uploadUrl, {
+				method: "POST",
+				body: formData,
+			});
+			setUploadStatus(
+				response.ok
+					? "Файлы успешно загружены!"
+					: "Ошибка при загрузке файлов.",
+			);
+		} catch {
+			setUploadStatus("Ошибка при загрузке файлов.");
+		}
+	};
+
 	return (
 		<div className="worker-content worker__experience">
 			<TitleSection title="Профессиональная информация" />
@@ -20,7 +61,6 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 						disabled: true,
 						classname: "workerPersonal-inp",
 					},
-
 					{
 						name: "educationSpecialization",
 						value: validWorker?.specialization,
@@ -28,7 +68,6 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 						disabled: true,
 						label: "Специальность",
 					},
-
 					{
 						name: "educationUniversity",
 						value: validWorker?.university,
@@ -36,7 +75,6 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 						disabled: true,
 						label: "Учебное заведение",
 					},
-
 					{
 						name: "educationEndingYear",
 						value: validWorker?.eductionEndingYear,
@@ -60,7 +98,6 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 								disabled: true,
 								label: "Статус работы",
 							},
-
 							{
 								name: "currJob",
 								value: validWorker?.currJob,
@@ -68,7 +105,6 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 								disabled: true,
 								label: "Место работы",
 							},
-
 							{
 								name: "currJobPosition",
 								classname: "workerPersonal-inp",
@@ -76,7 +112,6 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 								disabled: true,
 								label: "Должность",
 							},
-
 							{
 								name: "workStatus",
 								value: validWorker?.currJobPeriod,
@@ -90,7 +125,7 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 				</div>
 
 				<div className="workerExperience-card">
-					<h3 className="prevjob-title">Предедущая работа</h3>
+					<h3 className="prevjob-title">Предыдущая работа</h3>
 					<Form
 						inputs={[
 							{
@@ -125,14 +160,27 @@ const WorkerExprerience: React.FC<{ worker: string }> = ({ worker }) => {
 						classname="workerPersonal-form workerExperience-form"
 					/>
 				</div>
-				<div className="work-eperience-file">
+
+				{/* Загрузка файлов */}
+				<div className="file-upload">
 					<label htmlFor="fileInput" className="file-label">
 						+
-						<input type="file" id="fileInput" className="file-input" />
 					</label>
+					<input
+						type="file"
+						id="fileInput"
+						className="file-input"
+						multiple
+						onChange={handleFileChange}
+					/>
+					<button onClick={handleUpload} className="upload-button">
+						Загрузить файлы
+					</button>
+					{uploadStatus && <p>{uploadStatus}</p>}
 				</div>
 			</div>
 		</div>
 	);
 };
-export default WorkerExprerience;
+
+export default WorkerExperience;

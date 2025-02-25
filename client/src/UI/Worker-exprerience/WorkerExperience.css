@@ -14,25 +14,19 @@
 	padding-bottom: 10px;
 }
 
-.work-eperience-file {
+.file-label {
 	background: rgba(161, 161, 161, 0.134);
 	border-radius: 10px;
-	max-width: max-content;
-	padding: 20px;
-	margin-bottom: 20px;
 	border: 1px dashed black;
-}
-
-.file-label {
 	font-size: 40px;
 	cursor: pointer;
-	display: inline-block;
 	text-align: center;
-	width: 100px;
-	height: 100px;
-	line-height: 100px;
+	max-width: 100px;
+	width: 100%;
+	min-height: 100px;
+	line-height: 95px;
 	border-radius: 10px;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .file-input {
