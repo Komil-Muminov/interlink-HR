@@ -204,7 +204,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 								</span>
 							</div>
 						))}
-						<Button onClick={handleUpload}>Отправит2 ь</Button>
+						<Button onClick={handleUpload}>Отправить</Button>
 					</div>
 					{/* Квалификация */}
 					<TitleSection title="Квалификация" />
