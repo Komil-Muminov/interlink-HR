@@ -13,6 +13,7 @@
 }
 .creatWorker__form select {
 	width: 100%;
+	min-width: 700px;
 }
 
 .createWorker-inp {

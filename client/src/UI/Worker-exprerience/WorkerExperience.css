@@ -52,14 +52,14 @@
 	flex-direction: column;
 	/* justify-content: center; */
 	align-items: center;
-	padding: 10px;
+	padding: 20px;
 	border: 1px solid gray;
 	width: calc((100% - 10px) / 2);
 	border-radius: 10px;
 }
 
 .workerPersonal-inp {
-	min-width: 600px;
+	min-width: 700px;
 	width: calc((100% - 10px) / 2);
 }
 
