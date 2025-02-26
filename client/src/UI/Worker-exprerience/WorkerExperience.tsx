@@ -2,50 +2,52 @@ import React, { useState } from "react";
 import { Form } from "../Form/Form";
 import TitleSection from "../Title of Section/TitleSection";
 import { WorkerData } from "../../API/data/Workers";
+import { useFile } from "../../API/hooks/useFile";
 import "../Worker-personal/WorkerPersolan.css";
 import "./WorkerExperience.css";
+import { Button } from "@mui/material";
 
 interface WorkerExperienceProps {
 	worker: string;
 }
 
-const uploadUrl = "http://localhost:3000/users/worker-card";
-
 const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
-	// Ищем работника по имени (worker — строка)
 	const validWorker = WorkerData.find((item) => item.fname === worker);
 
 	// Состояния для загрузки файлов
-	const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
+	const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 	const [uploadStatus, setUploadStatus] = useState("");
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setSelectedFiles(e.target.files);
+		if (e.target.files) {
+			const newArr = [...e.target.files].map((item) => ({
+				...item,
+				id: Date.now() + Math.random(),
+			}));
+			setSelectedFiles((prev) => [...prev, ...newArr]);
+		}
 	};
 
+	const { sendFile } = useFile();
+
 	const handleUpload = async () => {
-		if (!selectedFiles || !selectedFiles.length) {
+		if (selectedFiles.length === 0) {
 			setUploadStatus("Выберите файлы для загрузки.");
 			return;
 		}
-
 		const formData = new FormData();
-		// Преобразуем FileList в массив с помощью spread-оператора
-		[...selectedFiles].forEach((file) => formData.append("worker-card", file));
+		selectedFiles.forEach((item) => formData.append("worker-card", item));
 
 		try {
-			const response = await fetch(uploadUrl, {
-				method: "POST",
-				body: formData,
-			});
-			setUploadStatus(
-				response.ok
-					? "Файлы успешно загружены!"
-					: "Ошибка при загрузке файлов.",
-			);
+			await sendFile(formData);
+			setUploadStatus("Файл успешно отправлен");
 		} catch {
 			setUploadStatus("Ошибка при загрузке файлов.");
 		}
+	};
+
+	const handleDltFile = (fileId: number) => {
+		setSelectedFiles((item) => item.filter((item) => item.id !== fileId));
 	};
 
 	return (
@@ -162,7 +164,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 				</div>
 
 				{/* Загрузка файлов */}
-				<div className="file-upload">
+				<div className="file-upload-content">
 					<label htmlFor="fileInput" className="file-label">
 						+
 					</label>
@@ -173,10 +175,68 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 						multiple
 						onChange={handleFileChange}
 					/>
-					<button onClick={handleUpload} className="upload-button">
-						Загрузить файлы
-					</button>
 					{uploadStatus && <p>{uploadStatus}</p>}
+					<div className="file-upload-list-content">
+						{selectedFiles?.map((item) => (
+							<div className="file-upload-list" key={item.id}>
+								<span className="file-upload-item">
+									{item.id}
+									<Button onClick={() => handleDltFile(item.id)}>
+										Удалить
+									</Button>
+								</span>
+							</div>
+						))}
+					</div>
+					{/* Квалификация */}
+					<TitleSection title="Квалификация" />
+					<div className="file-upload-list-content ">
+						<label htmlFor="fileInput" className="file-label personaly-files">
+							+
+						</label>
+						<input
+							type="file"
+							id="fileInput"
+							className="file-input"
+							multiple
+							onChange={handleFileChange}
+						/>
+						{uploadStatus && <p>{uploadStatus}</p>}
+						{selectedFiles?.map((item) => (
+							<div className="file-upload-list" key={item.id}>
+								<span className="file-upload-item">
+									{item.id}
+									<Button onClick={() => handleDltFile(item.id)}>
+										Удалить
+									</Button>
+								</span>
+							</div>
+						))}
+					</div>
+					{/* Личные документы */}
+					<TitleSection title="Личные документы " />
+					<div className="file-upload-list-content">
+						<label htmlFor="fileInput" className="file-label personaly-files">
+							+
+						</label>
+						<input
+							type="file"
+							id="fileInput"
+							className="file-input"
+							multiple
+							onChange={handleFileChange}
+						/>
+						{selectedFiles?.map((item) => (
+							<div className="file-upload-list" key={item.id}>
+								<span className="file-upload-item">
+									{item.id}
+									<Button onClick={() => handleDltFile(item.id)}>
+										Удалить
+									</Button>
+								</span>
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

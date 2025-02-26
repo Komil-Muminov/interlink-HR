@@ -62,3 +62,33 @@
 	min-width: 600px;
 	width: calc((100% - 10px) / 2);
 }
+
+/* file */
+.file-upload-content {
+	width: 100%;
+}
+.file-upload-list-content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.file-upload-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.file-upload-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	width: 100%;
+	border: 1px dashed gray;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.personaly-files {
+	min-width: 100%;
+}

@@ -28,7 +28,7 @@ const fileFilter = multer({
 				file.mimetype,
 			)
 		) {
-			return cb(new Error(`Недопустимый формат файла`, false));
+			return cb(new Error(`Недопустимый формат файла`));
 		} else {
 			return cb(null, true);
 		}
@@ -39,8 +39,7 @@ const fileFilter = multer({
 });
 
 export const workerFile = (req: Request, res: Response) => {
-
-    fileFilter.single("worker-card")(req, res, (err: any) => {
+	fileFilter.single("worker-card")(req, res, (err: any) => {
 		if (err) {
 			return res
 				.status(400)
