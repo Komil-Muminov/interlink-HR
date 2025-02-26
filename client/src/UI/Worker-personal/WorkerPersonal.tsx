@@ -4,6 +4,7 @@ import { useConfirm } from "../../API/hooks/useConfirm";
 import WorkerExprerience from "../Worker-exprerience/WorkerExperience";
 import { WorkerData, IWorker } from "../../API/data/Workers";
 import { useEffect, useState } from "react";
+import PanelControl from "../Panel Control/PanelControl";
 import "./WorkerPersolan.css";
 
 const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
@@ -16,10 +17,19 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 		console.log(validWorker);
 		console.log(typeof validWorker);
 	}, [worker]);
+
+	const [approve, setApprove] = useState<boolean>(false);
+	const handleApproveWorker = () => {
+		setApprove((prev) => !prev);
+	};
 	return (
 		<>
 			<div className="worker-content worker__personal-content">
-				<TitleSection title="Данные пользователя 2" />
+				<PanelControl
+					handleSubmit={handleApproveWorker}
+					saveButtonState={false}
+				/>
+				<TitleSection title="Данные пользователя" />
 				<Form
 					inputs={[
 						{
@@ -108,7 +118,7 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 					classname="workerPersonal-form"
 				/>
 			</div>
-			<WorkerExprerience worker={worker} />
+			<WorkerExprerience approve={approve} worker={worker} />
 		</>
 	);
 };

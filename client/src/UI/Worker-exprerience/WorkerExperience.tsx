@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "../Form/Form";
 import TitleSection from "../Title of Section/TitleSection";
 import { WorkerData } from "../../API/data/Workers";
@@ -6,12 +6,17 @@ import { useFile } from "../../API/hooks/useFile";
 import "../Worker-personal/WorkerPersolan.css";
 import "./WorkerExperience.css";
 import { Button } from "@mui/material";
+import PanelControl from "../Panel Control/PanelControl";
 
 interface WorkerExperienceProps {
 	worker: string;
+	approve: boolean;
 }
 
-const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
+const WorkerExperience: React.FC<WorkerExperienceProps> = ({
+	worker,
+	approve,
+}) => {
 	const validWorker = WorkerData.find((item) => item.fname === worker);
 
 	// Состояния для загрузки файлов
@@ -43,6 +48,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 			setUploadStatus("Файл успешно отправлен");
 		} catch {
 			setUploadStatus("Ошибка при загрузке файлов.");
+			console.log("km");
 		}
 	};
 
@@ -50,6 +56,14 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 		setSelectedFiles((item) => item.filter((item) => item.id !== fileId));
 	};
 
+	useEffect(() => {
+		if (approve) {
+			handleUpload();
+			console.log(`km2`);
+		} else {
+			console.log(approve);
+		}
+	}, [approve]);
 	return (
 		<div className="worker-content worker__experience">
 			<TitleSection title="Профессиональная информация" />
@@ -187,6 +201,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 								</span>
 							</div>
 						))}
+						<Button onClick={handleUpload}>Отправить</Button>
 					</div>
 					{/* Квалификация */}
 					<TitleSection title="Квалификация" />
@@ -201,8 +216,8 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 							multiple
 							onChange={handleFileChange}
 						/>
-						{uploadStatus && <p>{uploadStatus}</p>}
-						{selectedFiles?.map((item) => (
+						{/* {uploadStatus && <p>{uploadStatus}</p>} */}
+						{/* {selectedFiles?.map((item) => (
 							<div className="file-upload-list" key={item.id}>
 								<span className="file-upload-item">
 									{item.id}
@@ -211,7 +226,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 									</Button>
 								</span>
 							</div>
-						))}
+						))} */}
 					</div>
 					{/* Личные документы */}
 					<TitleSection title="Личные документы " />
@@ -226,7 +241,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 							multiple
 							onChange={handleFileChange}
 						/>
-						{selectedFiles?.map((item) => (
+						{/* {selectedFiles?.map((item) => (
 							<div className="file-upload-list" key={item.id}>
 								<span className="file-upload-item">
 									{item.id}
@@ -235,7 +250,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({ worker }) => {
 									</Button>
 								</span>
 							</div>
-						))}
+						))} */}
 					</div>
 				</div>
 			</div>
