@@ -6,18 +6,18 @@ import fs from "fs"; // Для работы с файловой системой
 
 const fileService = multer.diskStorage({
   destination: (req, file, cb) => {
-    // Получаем сгенерированный ID организации из req.body
-    const orgId = req.body.id;
+    // Получаем сгенерированный ID документа из req.body
+    const docId = req.body.id;
 
     // Путь до папки организации
-    const orgFolderPath = `uploads/organizations/${orgId}`;
+    const documentFolderPath = `uploads/documents/${docId}`;
 
     // Создаём папку, если её нет
-    if (!fs.existsSync(orgFolderPath)) {
-      fs.mkdirSync(orgFolderPath, { recursive: true }); // Создаём папку с идентификатором организации
+    if (!fs.existsSync(documentFolderPath)) {
+      fs.mkdirSync(documentFolderPath, { recursive: true }); // Создаём папку с идентификатором документа
     }
 
-    cb(null, orgFolderPath); // Устанавливаем папку для загрузки
+    cb(null, documentFolderPath); // Устанавливаем папку для загрузки
   },
   filename: (req, file, cb) => {
     // Генерация уникального имени для каждого файла

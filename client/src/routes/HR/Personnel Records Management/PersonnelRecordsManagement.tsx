@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PersonnelRecordsManagement.css";
 import NavigationOfModules from "../../../UI/Navigation of Modules/NavigationOfModules";
 import Filter from "../../../components/Filter/Filter";
@@ -6,6 +6,10 @@ import { Link } from "react-router";
 import { PersonnelRecordsManagementDataFilter } from "../../../API/data/PersonnelRecordsManagementDataFilter";
 import { Button } from "@mui/material";
 import Registry from "../../../components/Registry/Registry";
+import { useQuery } from "@tanstack/react-query";
+import { queryClient } from "../../../API/hooks/queryClient";
+import { getDocuments } from "../../../API/services/documents/getDocuments";
+import { IDocuments } from "../../../API/services/types/Document";
 
 const PersonnelRecordsManagement = () => {
   interface SubmodulesList {
@@ -47,39 +51,32 @@ const PersonnelRecordsManagement = () => {
     ].includes(e.title);
   }).map((e) => e.title);
 
-  interface TData {
-    id: number;
-    docType: string;
-    date: string;
-    employees: string[];
-    status: string;
-  }
+  const [documents, setDocuments] = useState<IDocuments[]>();
 
-  const data: TData[] = [
+  const getDocumentsQuery = useQuery(
     {
-      id: 1,
-      docType: "Трудовой договор",
-      date: "24.02.2024",
-      employees: ["Амир"],
-      status: "Активный",
+      queryFn: () => getDocuments(),
+      queryKey: ["documents"],
     },
-    {
-      id: 2,
-      docType: "Командировка",
-      date: "25.02.2024",
-      employees: ["Амир"],
-      status: "Активный",
-    },
-  ];
+    queryClient
+  );
 
-  const rows = data.map((item: TData, index) => [
+  useEffect(() => {
+    if (getDocumentsQuery.status === "success") {
+      setDocuments(getDocumentsQuery.data);
+    }
+  }, [getDocumentsQuery.data]);
+
+  const rows = documents?.map((item: IDocuments, index) => [
     item.id,
     index + 1,
     item.docType,
     item.date,
-    item.employees,
-    item.status,
+    item.fullname,
+    item.state,
   ]);
+
+  console.log(rows);
 
   return (
     <main className="main-personnel-records-management">
@@ -91,17 +88,13 @@ const PersonnelRecordsManagement = () => {
         <h1 className="submodule-title">Реестр</h1>
         <div className="panel-control-filter">
           <Filter data={PersonnelRecordsManagementDataFilter} />
-          <Link to="/modules/hr/sobmodules/personnel-records-management/create">
+          <Link to="/modules/hr/submodules/personnel-records-management/create">
             <Button variant="contained">Добавить</Button>
           </Link>
         </div>
       </section>
       <section>
-        <Registry
-          headersProps={headers}
-          rowsProps={rows}
-          status={{ active: "Активный", inactive: "Неактивный" }}
-        />
+        <Registry headersProps={headers} rowsProps={rows} />
       </section>
     </main>
   );

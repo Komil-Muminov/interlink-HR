@@ -8,10 +8,26 @@ import Input from "../../../../UI/Input/Input";
 import { useForm } from "react-hook-form";
 import SelectUI from "../../../../UI/Select/SelectUI";
 import { users } from "../../../../API/data/Users";
+import { generateUniqueId } from "../../../../API/hooks/generateUniqueId";
+import { useMutation } from "@tanstack/react-query";
+import { useNavigate } from "react-router";
+import { queryClient } from "../../../../API/hooks/queryClient";
+import { createDocument } from "../../../../API/services/documents/createDocument";
+
+interface IEmploymentContract {
+  fullname: string;
+  role: string;
+  subdivision: string;
+  orgName: string;
+  phone: string;
+  email: string;
+  status: string;
+  userType: string;
+}
 
 const CreatePersonnelRecordsManagement = () => {
   const { register, watch, control, handleSubmit, setValue, getValues } =
-    useForm({
+    useForm<IEmploymentContract>({
       defaultValues: {
         fullname: "",
         role: "",
@@ -49,13 +65,53 @@ const CreatePersonnelRecordsManagement = () => {
 
   const [activeTab, setActiveTab] = useState<string>(documentsList[0].item);
 
+  const onSubmit = (data: IEmploymentContract) => {
+    const formData = new FormData();
+
+    if (activeTab === "Трудовой договор") {
+      formData.append("fullname", data.fullname);
+      formData.append("role", data.role);
+      formData.append("subdivision", data.subdivision);
+      formData.append("orgName", data.orgName);
+      formData.append("phone", data.phone);
+      formData.append("email", data.email);
+      formData.append("status", data.status);
+      formData.append("userType", data.userType);
+    }
+
+    formData.append("id", generateUniqueId());
+    formData.append("docType", activeTab);
+    formData.append("state", "1");
+    formData.append("date", new Date().toISOString().split("T")[0]);
+
+    createDocumentMutate.mutate(formData);
+    console.log(Array.from(formData.entries()));
+  };
+
+  const navigate = useNavigate();
+
+  const createDocumentMutate = useMutation<any, Error, FormData>({
+    mutationFn: (data: FormData) => createDocument(data),
+    onSuccess: (_, variables) => {
+      const documentId = variables.get("id");
+      queryClient.invalidateQueries({ queryKey: "documents" });
+      navigate(
+        `/modules/hr/submodules/personnel-records-management/show/${documentId}`
+      );
+    },
+    onError: (error) => {
+      console.error("Ошибка при создании трудового договора:", error.message);
+      alert("Для данного сотрудника трудовой договор уже существует!");
+    },
+  });
+
   return (
     <main className="create-personnel-records-management">
       <TitleSection title="Новый документ" />
       <PanelControl
-      //   handleSubmit={handleSubmit(onSubmit)}
-      //   saveButtonState={!isValidInn ? true : false}
-      // editButtonState
+        handleSubmit={handleSubmit(onSubmit)}
+        saveButtonState={true}
+        // editButtonState
       />
       <section>
         <div className="wrapper-nav-documents-list">
@@ -173,8 +229,8 @@ const CreatePersonnelRecordsManagement = () => {
               />
             </form>
           </section>
-          <TitleSection title="Трудовой договор" />
-          <section></section>
+          {/* <TitleSection title="Трудовой договор" />
+          <section></section> */}
         </>
       )}
 

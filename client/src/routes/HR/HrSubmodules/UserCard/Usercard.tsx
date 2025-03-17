@@ -9,7 +9,7 @@ const Usercard: React.FC = () => {
 	const getWorkerMutation = useMutation(
 		{
 			mutationFn: () => {
-				return fetch(`http://localhost:3000/getUsers/${inn}`, {
+				return fetch(`http://localhost:3001/getUsers/${inn}`, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

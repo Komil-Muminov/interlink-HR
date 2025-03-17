@@ -1,10 +1,12 @@
 const API = "http://localhost:3001";
 
-export const getOrganizations = async () => {
+
+
+export const getDocuments = async () => {
   try {
-    const response = await fetch(`${API}/organizations`);
+    const response = await fetch(`${API}/documents`);
     if (!response.ok) {
-      throw new Error("Ошибка в запросе getOrganizations");
+      throw new Error("Ошибка в запросе getDocuments");
     }
     return response.json();
   } catch (error) {

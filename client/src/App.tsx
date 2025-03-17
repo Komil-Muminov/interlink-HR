@@ -28,6 +28,12 @@ const LazyCreatePersonnelRecordsManagement = lazy(
       "./routes/HR/Personnel Records Management/Create/CreatePersonnelRecordsManagement"
     )
 );
+const LazyShowPersonnelRecordsManagement = lazy(
+  () =>
+    import(
+      "./routes/HR/Personnel Records Management/Show/ShowPersonnelRecordsManagement"
+    )
+);
 
 const LazyCreateContracts = lazy(
   () => import("./routes/HR/Contracts/Create/CreateContracts")
@@ -68,8 +74,12 @@ function App() {
                   element={<LazyPersonnelRecordsManagement />}
                 />
                 <Route
-                  path="/modules/hr/sobmodules/personnel-records-management/create"
+                  path="modules/hr/submodules/personnel-records-management/create"
                   element={<LazyCreatePersonnelRecordsManagement />}
+                />
+                <Route
+                  path="modules/hr/submodules/personnel-records-management/show/:id"
+                  element={<LazyShowPersonnelRecordsManagement />}
                 />
                 <Route
                   path="/modules/hr/submodules/employee-personal-card/create"

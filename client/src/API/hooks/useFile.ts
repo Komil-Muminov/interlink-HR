@@ -1,6 +1,6 @@
 export const useFile = () => {
 	const sendFile = (file: FormData) => {
-		return fetch(`http://localhost:3000/users/worker-card`, {
+		return fetch(`http://localhost:3001/users/worker-card`, {
 			method: "POST",
 			body: file,
 		}).then((res: Response) => {

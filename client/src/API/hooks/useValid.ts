@@ -4,7 +4,7 @@ export const useValid = () => {
 	const validInn = async (
 		inn: string,
 	): Promise<{ inn: OrganizationScheme }> => {
-		return fetch(`http://localhost:3000/organizations/checkinn`, {
+		return fetch(`http://localhost:3001/organizations/checkinn`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import { OrganizationScheme } from "./OrganizationScheme";
 
-const API = "http://localhost:3000";
+const API = "http://localhost:3001";
 
 export const createOrganization = async (formData: FormData) => {
   try {

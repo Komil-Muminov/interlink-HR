@@ -11,38 +11,40 @@ interface TData {
 }
 
 interface TProps {
-  disable: boolean;
-  control: any;
+  disabled?: boolean;
+  control?: any;
   nameValue: string;
   labelValue: string;
   borderRadiusStyle: string;
   heightStyle?: string;
   widthStyle: string;
-  data: TData[] | TUsers[];
+  data?: TData[] | TUsers[];
+  value?: string;
 }
 
 const SelectUI = ({
   control,
-  disable,
+  disabled,
   nameValue,
   labelValue,
   borderRadiusStyle,
   widthStyle,
   data,
+  value,
 }: TProps) => {
   return (
     <Box width={widthStyle}>
       <Controller
         name={nameValue}
         control={control}
-        defaultValue=""
+        defaultValue={value || ""} // Передаем value
         render={({ field }) => (
           <FormControl fullWidth>
             <InputLabel id="terCode-label">{labelValue}</InputLabel>
             <Select
               {...field}
               id={nameValue}
-              disabled={disable}
+              disabled={disabled}
               labelId={`${nameValue}-label`}
               label={labelValue}
               sx={{
@@ -51,7 +53,7 @@ const SelectUI = ({
                 },
               }}
             >
-              {data.map((e) => {
+              {data?.map((e) => {
                 return (
                   <MenuItem
                     key={e.id}
