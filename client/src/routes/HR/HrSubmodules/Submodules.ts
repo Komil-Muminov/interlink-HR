@@ -30,10 +30,10 @@ export const SubModulesList: SubmodulesScheme[] = [
     link: "/modules/hr/submodules/working-hours",
   },
 
-  {
-    id: 4,
-    title: "Кадровая отчетность",
-    image: notFound,
-    link: "/modules//hr/submodules/report",
-  },
+  // {
+  //   id: 4,
+  //   title: "Кадровая отчетность",
+  //   image: notFound,
+  //   link: "/modules//hr/submodules/report",
+  // },
 ];

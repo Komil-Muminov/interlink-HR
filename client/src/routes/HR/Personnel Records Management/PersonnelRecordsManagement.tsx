@@ -34,11 +34,11 @@ const PersonnelRecordsManagement = () => {
       title: "Учет рабочего времени",
       link: "/primary-docs/contracts",
     },
-    {
-      id: 4,
-      title: "Кадровая отчетность",
-      link: "/modules/hr/submodules",
-    },
+    // {
+    //   id: 4,
+    //   title: "Кадровая отчетность",
+    //   link: "/modules/hr/submodules",
+    // },
   ];
 
   const headers = PersonnelRecordsManagementDataFilter.filter((e) => {

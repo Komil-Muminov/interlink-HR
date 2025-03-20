@@ -9,3 +9,8 @@ export const DOCUMENTS_FILE_PATH = joinFilePath(
   ["services", "data"],
   "documents.json"
 );
+
+export const WORKING_HOURS_FILE_PATH = joinFilePath(
+  ["services", "data"],
+  "workingHours.json"
+);

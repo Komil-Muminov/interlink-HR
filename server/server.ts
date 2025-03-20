@@ -4,6 +4,7 @@ import userRoutes from "./routes/users";
 // import organizationsRoutes from "./routes/organizations";
 import organizationsRoutes from "./routes/organizations";
 import documentsRoutes from "./routes/documents";
+import workingHoursRoutes from "./routes/workingHours";
 import cors from "cors";
 
 // const router = Router();
@@ -16,6 +17,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use("/users", userRoutes);
 app.use("/organizations", organizationsRoutes);
 app.use("/documents", documentsRoutes);
+app.use("/workingHours", workingHoursRoutes);
 
 // app.use(router);
 app.use(express.static("uploads"));

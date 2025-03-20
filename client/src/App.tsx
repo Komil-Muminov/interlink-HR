@@ -35,6 +35,16 @@ const LazyShowPersonnelRecordsManagement = lazy(
     )
 );
 
+const LazyWorkingHours = lazy(
+  () => import("./routes/HR/Working Hours/WorkingHours")
+);
+const LazyCreateWorkingHours = lazy(
+  () => import("./routes/HR/Working Hours/Create/CreateWorkingHours")
+);
+const LazyShowWorkingHours = lazy(
+  () => import("./routes/HR/Working Hours/Show/ShowWorkingHours")
+);
+
 const LazyCreateContracts = lazy(
   () => import("./routes/HR/Contracts/Create/CreateContracts")
 );
@@ -80,6 +90,18 @@ function App() {
                 <Route
                   path="modules/hr/submodules/personnel-records-management/show/:id"
                   element={<LazyShowPersonnelRecordsManagement />}
+                />
+                <Route
+                  path="/modules/hr/submodules/working-hours"
+                  element={<LazyWorkingHours />}
+                />
+                <Route
+                  path="modules/hr/submodules/working-hours/create"
+                  element={<LazyCreateWorkingHours />}
+                />
+                <Route
+                  path="modules/hr/submodules/working-hours/show/:id"
+                  element={<LazyShowWorkingHours />}
                 />
                 <Route
                   path="/modules/hr/submodules/employee-personal-card/create"

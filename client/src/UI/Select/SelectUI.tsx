@@ -31,6 +31,7 @@ const SelectUI = ({
   widthStyle,
   data,
   value,
+  heightStyle,
 }: TProps) => {
   return (
     <Box width={widthStyle}>
@@ -48,6 +49,7 @@ const SelectUI = ({
               labelId={`${nameValue}-label`}
               label={labelValue}
               sx={{
+                height: heightStyle,
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderRadius: borderRadiusStyle,
                 },
