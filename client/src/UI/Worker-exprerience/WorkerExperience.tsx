@@ -24,12 +24,12 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 	const [uploadStatus, setUploadStatus] = useState("");
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (e.target.files) {
-			const newArr = [...e.target.files].map((item) => ({
-				...item,
-				id: Date.now() + Math.random(),
-			}));
-			setSelectedFiles((prev) => [...prev, ...newArr]);
+		const files = Array.from(e.target.files).map((item) => ({
+			...item,
+			id: Date.now() + Math.random(),
+		}));
+		if (files) {
+			setSelectedFiles((prev) => [...prev, ...files]);
 		}
 	};
 
@@ -75,14 +75,14 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 				inputs={[
 					{
 						name: "educationLevel",
-						value: validWorker?.educationLevel,
+						value: validWorker?.educationLevel || "Высшее",
 						label: "Уровень образование",
 						disabled: true,
 						classname: "workerPersonal-inp",
 					},
 					{
 						name: "educationSpecialization",
-						value: validWorker?.specialization,
+						value: validWorker?.specialization || "Инженерный факультет",
 						classname: "workerPersonal-inp",
 						disabled: true,
 						label: "Специальность",
@@ -96,7 +96,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 					},
 					{
 						name: "educationEndingYear",
-						value: validWorker?.eductionEndingYear,
+						value: validWorker?.eductionEndingYear || "2018",
 						label: "Год окончание",
 						disabled: true,
 						classname: "workerPersonal-inp",
@@ -112,28 +112,28 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 						inputs={[
 							{
 								name: "currJobStatus",
-								value: validWorker?.currJobStatus,
+								value: validWorker?.currJobStatus || "Текущая", // Пример значения
 								classname: "workerPersonal-inp",
 								disabled: true,
 								label: "Статус работы",
 							},
 							{
 								name: "currJob",
-								value: validWorker?.currJob,
+								value: validWorker?.currJob || "ГУП ЦФИТ",
 								classname: "workerPersonal-inp",
 								disabled: true,
 								label: "Место работы",
 							},
 							{
 								name: "currJobPosition",
+								value: validWorker?.currJobPosition || "Специалист",
 								classname: "workerPersonal-inp",
-								value: validWorker?.currJobPosition,
 								disabled: true,
 								label: "Должность",
 							},
 							{
 								name: "workStatus",
-								value: validWorker?.currJobPeriod,
+								value: validWorker?.currJobPeriod || "2022 - настоящее время",
 								disabled: true,
 								classname: "workerPersonal-inp",
 								label: "Период",
@@ -149,28 +149,28 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 						inputs={[
 							{
 								name: "PrevJobStatus",
-								value: validWorker?.prevJobStatus,
+								value: `Не активный`,
 								disabled: true,
 								classname: "workerPersonal-inp",
 								label: "Статус работы",
 							},
 							{
 								name: "prevJob",
-								value: validWorker?.prevJob,
+								value: `Google`,
 								classname: "workerPersonal-inp",
 								disabled: true,
 								label: "Место работы",
 							},
 							{
 								name: "prevJobPosition",
-								value: validWorker?.prevJobPositon,
+								value: `Web-разработчик`,
 								disabled: true,
 								classname: "workerPersonal-inp",
 								label: "Должность",
 							},
 							{
 								name: "prevJobPeriod",
-								value: validWorker?.prevJobPeriod,
+								value: `2021-2023`,
 								label: "Период",
 								classname: "workerPersonal-inp",
 								disabled: true,
@@ -204,7 +204,7 @@ const WorkerExperience: React.FC<WorkerExperienceProps> = ({
 								</span>
 							</div>
 						))}
-						<Button onClick={handleUpload}>Отправить</Button>
+						{/* <Button onClick={handleUpload}>Отправить</Button> */}
 					</div>
 					{/* Квалификация */}
 					<TitleSection title="Квалификация" />

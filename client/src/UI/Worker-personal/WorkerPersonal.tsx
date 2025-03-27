@@ -27,7 +27,7 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 			<div className="worker-content worker__personal-content">
 				<PanelControl
 					handleSubmit={handleApproveWorker}
-					saveButtonState={false}
+					// saveButtonState={false}
 				/>
 				<TitleSection title="Данные пользователя" />
 				<Form
@@ -82,7 +82,6 @@ const WorkerPersonal: React.FC<{ [key: string]: string | undefined }> = ({
 					]}
 					classname="workerPersonal-form"
 				/>
-
 				<TitleSection title="Личная информация" />
 				<Form
 					inputs={[

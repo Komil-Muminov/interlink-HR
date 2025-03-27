@@ -8,7 +8,6 @@ const WorkerCard: React.FC<{ [key: string]: string | undefined }> = ({
 		<>
 			<TitleSection title="Профессиональная информаци" />
 			<Form inputs={[{ name: "education-level", value: item.name }]} />
-			dsa
 		</>
 	);
 };
