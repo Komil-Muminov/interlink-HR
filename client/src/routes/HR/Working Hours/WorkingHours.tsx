@@ -10,6 +10,10 @@ import { IDocuments } from "../../../API/services/types/Document";
 import { getDocuments } from "../../../API/services/documents/getDocuments";
 import { useQuery } from "@tanstack/react-query";
 import { queryClient } from "../../../API/hooks/queryClient";
+import { IWorkingHours } from "../../../API/services/types/WorkingHours";
+import { getWorkingHours } from "../../../API/services/workingHours/getWorkingHours";
+import dayjs from "dayjs";
+import { getMonth } from "../../../API/hooks/getData";
 
 interface SubmodulesList {
   id: number;
@@ -43,41 +47,55 @@ const modulesList: SubmodulesList[] = [
 const WorkingHours = () => {
   const headers = WorkingHoursDataFilter.filter((e) => {
     return [
-      "Номер",
+      "Номер учета",
       "Месяц",
       "Год",
       "Дни",
       "Рабочие дни",
       "Ответственное лицо",
+      "Статус",
     ].includes(e.title);
   }).map((e) => e.title);
 
+  console.log(headers);
+
   // НУЖНО ЗАМЕНИТЬ КОГДА БУДЕТ ДАННЫЕ
 
-  const [documents, setDocuments] = useState<IDocuments[]>();
+  const [workingHours, setWorkingHours] = useState<IWorkingHours[]>();
 
-  const getDocumentsQuery = useQuery(
+  const getWorkingHoursQuery = useQuery(
     {
-      queryFn: () => getDocuments(),
-      queryKey: ["documents"],
+      queryFn: () => getWorkingHours(),
+      queryKey: ["workingHours"],
     },
     queryClient
   );
 
   useEffect(() => {
-    if (getDocumentsQuery.status === "success") {
-      setDocuments(getDocumentsQuery.data);
+    if (getWorkingHoursQuery.status === "success") {
+      setWorkingHours(getWorkingHoursQuery.data);
     }
-  }, [getDocumentsQuery.data]);
+  }, [getWorkingHoursQuery.data]);
 
-  const rows = documents?.map((item: IDocuments, index) => [
-    item.id,
-    index + 1,
-    item.docType,
-    item.date,
-    item.fullname,
-    item.state,
-  ]);
+  const rows = workingHours?.map((item: IWorkingHours, index) => {
+    const month = getMonth(item?.month);
+    const year = item.year ? dayjs(item.year) : null;
+    const workingDays = item.workingDays ? dayjs(item.workingDays) : null;
+
+    return [
+      item.id,
+      index + 1,
+      month,
+      year ? year.format("YYYY") : "",
+      item.days,
+      workingDays ? workingDays.format("DD") : "",
+      item.executor,
+      item.state,
+    ];
+  });
+
+  console.log(rows);
+
   return (
     <main className="main-working-hours">
       <NavigationOfModules
@@ -94,7 +112,7 @@ const WorkingHours = () => {
         </div>
       </section>
       <section>
-        <Registry headersProps={headers} rowsProps={rows} />
+        <Registry headersProps={headers} rowsProps={rows} url="working-hours" />
       </section>
     </main>
   );

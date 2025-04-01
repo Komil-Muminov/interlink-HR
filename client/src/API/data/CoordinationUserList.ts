@@ -1,8 +1,4 @@
-export interface ICordinationUserListData {
-  id: number;
-  fullname: string;
-  role: string;
-}
+
 
 export const corditaionUserList: ICordinationUserListData[] = [
   {

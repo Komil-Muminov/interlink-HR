@@ -94,7 +94,11 @@ const PersonnelRecordsManagement = () => {
         </div>
       </section>
       <section>
-        <Registry headersProps={headers} rowsProps={rows} />
+        <Registry
+          headersProps={headers}
+          rowsProps={rows}
+          url="personnel-records-management"
+        />
       </section>
     </main>
   );

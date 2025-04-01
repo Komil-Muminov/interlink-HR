@@ -1,13 +1,28 @@
 [
   {
     "files": [],
-    "id": "81f1b3dd-a275-45e1-8705-31498a305f46",
-    "month": "Thu, 20 Mar 2025 12:16:58 GMT",
-    "year": "Thu, 20 Mar 2025 12:16:58 GMT",
-    "days": "31",
-    "workingDays": "null",
-    "weekendDays": "null",
+    "id": "a48cf5d7-299d-4eb5-8def-69d25bd1c024",
+    "month": "Tue, 01 Apr 2025 05:41:04 GMT",
+    "year": "Tue, 01 Apr 2025 05:41:04 GMT",
+    "days": "30",
+    "workingDays": "Wed, 23 Apr 2025 19:00:00 GMT",
+    "weekendDays": "Wed, 02 Apr 2025 19:00:00 GMT",
     "executor": "Зиёева Адиба",
-    "state": "1"
+    "state": "268",
+    "htmlContent": "D:\\Frontend\\Interlink\\Кадр\\server\\uploads\\workingHours\\a48cf5d7-299d-4eb5-8def-69d25bd1c024\\htmlContent-a48cf5d7-299d-4eb5-8def-69d25bd1c024.html",
+    "signatureList": [
+      {
+        "id": 1,
+        "fullname": "Зиёева Адиба",
+        "role": "Начальника отдела",
+        "status": true
+      },
+      {
+        "id": 2,
+        "fullname": "Ахметова Мадина",
+        "role": "Начальника отдела",
+        "status": false
+      }
+    ]
   }
 ]

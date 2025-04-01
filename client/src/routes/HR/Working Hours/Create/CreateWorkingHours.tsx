@@ -14,7 +14,7 @@ import { generateUniqueId } from "../../../../API/hooks/generateUniqueId";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../../../API/hooks/queryClient";
 import { useNavigate } from "react-router";
-import { createWorkingHours } from "../../../../API/services/workingHours/createWorkingHours";
+import { createWorkingHours } from "../../../../API/services/workingHours/createWorkingHoursById";
 
 interface IWorkingHours {
   month: Dayjs | null;
@@ -23,6 +23,7 @@ interface IWorkingHours {
   workingDays: Dayjs | null;
   weekendDays: Dayjs | null;
   executor: string;
+  state: string;
 }
 
 const If = ({

@@ -1,23 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignatureForm.css";
 import { Button, Typography } from "@mui/material";
 import Input from "../../UI/Input/Input";
 import ModeIcon from "@mui/icons-material/Mode";
 import { useForm } from "react-hook-form";
 import SelectUI from "../../UI/Select/SelectUI";
-import { ICordinationUserListData } from "../../API/data/CoordinationUserList";
 
-interface ISignatureCoordination {
+export interface ICordinationUserListData {
+  id: number;
   fullname: string;
   role: string;
-  item: ICordinationUserListData;
+  status: boolean;
+}
+
+interface ISignatureCoordination {
+  item: {
+    fullname: string;
+    role: string;
+  };
 }
 
 interface IProps {
   item: ICordinationUserListData;
+  onSubmit: any;
 }
 
-export const SignatureForm = ({ item }: IProps) => {
+export const SignatureForm = ({ item, onSubmit }: IProps) => {
   const { register, watch, control, handleSubmit, setValue, getValues } =
     useForm<ISignatureCoordination>({
       defaultValues: {
@@ -30,11 +38,6 @@ export const SignatureForm = ({ item }: IProps) => {
     setValue("fullname", item.fullname);
     setValue("role", item.role);
   }, [item, setValue]);
-
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   return (
     <div style={{ width: "100%", display: "flex", gap: "10px" }}>
@@ -60,6 +63,7 @@ export const SignatureForm = ({ item }: IProps) => {
         widthStyle="32%"
       />
       <Button
+        disabled={item.status}
         onClick={handleSubmit(onSubmit)}
         type="submit"
         sx={{

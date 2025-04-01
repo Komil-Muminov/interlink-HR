@@ -8,23 +8,22 @@ import { statusOfDocument } from "../../API/data/statusOfDocument";
 interface TProps {
   headersProps: string[];
   rowsProps: any;
+  url: string;
 }
 
-const Registry = ({ headersProps, rowsProps }: TProps) => {
+const Registry = ({ headersProps, rowsProps, url }: TProps) => {
   const headers = headersProps;
   const rows = rowsProps;
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleRowClick = (rowId: string) => {
-    if (
-      location.pathname ===
-      "/modules/hr/submodules/personnel-records-management"
-    ) {
-      navigate(
-        `/modules/hr/submodules/personnel-records-management/show/${rowId}`
-      ); // Навигация на нужный путь
-    }
+    // if (
+    //   location.pathname ===
+    //   "/modules/hr/submodules/personnel-records-management"
+    // ) {
+    navigate(`/modules/hr/submodules/${url}/show/${rowId}`); // Навигация на нужный путь
+    // }
   };
 
   return (

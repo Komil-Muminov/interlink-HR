@@ -11,6 +11,7 @@ interface TProps {
   handleSubmit?: React.MouseEventHandler;
   editButtonState?: boolean;
   saveButtonState?: boolean;
+  approvalButtonState?: boolean;
   handleApproval?: any;
   scrollTo: any;
   setCurrentPage: any;
@@ -22,6 +23,7 @@ const PanelControl = ({
   handleSubmit,
   saveButtonState,
   editButtonState,
+  approvalButtonState,
   handleApproval,
   scrollTo,
   setCurrentPage,
@@ -73,7 +75,7 @@ const PanelControl = ({
           <SaveIcon /> <p>Сохранить</p>
         </Button>
         <Button
-          disabled={false}
+          disabled={approvalButtonState}
           onClick={() => {
             handleApproval();
             scrollTo("docViewer");

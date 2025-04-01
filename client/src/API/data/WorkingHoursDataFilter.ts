@@ -30,4 +30,14 @@ export const WorkingHoursDataFilter: WorkingHoursDataFilterType[] = [
     title: "Рабочие дни",
     types: [],
   },
+  {
+    id: 6,
+    title: "Ответственное лицо",
+    types: [],
+  },
+  {
+    id: 7,
+    title: "Статус",
+    types: [],
+  },
 ];
