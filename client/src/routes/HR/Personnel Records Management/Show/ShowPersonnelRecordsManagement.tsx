@@ -206,6 +206,7 @@ const ShowPersonnelRecordsManagement = () => {
         scrollTo={scrollTo}
         setCurrentPage={setCurrentPage}
         lastPages={numPages}
+        currentDocument={currentDocument}
       />
       <TitleSection title="Данные пользователя" />
       <section>

@@ -249,12 +249,13 @@ const ShowWorkingHours = () => {
   const currentMonth = getMonth(currentWorkingHours?.month);
   const currentYear = getYear(currentWorkingHours?.year);
 
-  console.log(currentWorkingHours?.year);
+  console.log(currentWorkingHours);
 
   return (
     <main className="show-working-hours">
       <TitleSection title={`${currentMonth}, ${currentYear} г`} />
       <PanelControl
+        currentDocument={currentWorkingHours}
         saveButtonState={true}
         approvalButtonState={!approvalState}
         handleApproval={handleUpdateData}

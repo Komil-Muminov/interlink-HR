@@ -1,21 +1,25 @@
+.nav-panel-control {
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .panel-control {
-	background-color: #fff;
-	border-radius: 30px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 20px 30px;
-	margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #0000001e;
+  padding: 20px 30px;
 }
 
 .action-buttons button,
 .back-button button {
-	color: var(--primary-color);
-	font-weight: bold;
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .action-buttons {
-	display: flex;
-	gap: 25px;
+  display: flex;
+  gap: 25px;
 }

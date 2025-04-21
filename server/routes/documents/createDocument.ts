@@ -24,12 +24,12 @@ export const createDocument = (req: Request, res: Response): void => {
     (e) => e.fullname === "Табаров Комилчон" || e.fullname === "Шарипов Амир"
   );
 
-  if (checkUser && documentData.docType === "Трудовой договор") {
-    res
-      .status(409)
-      .json({ error: "Для данного пользователя существует трудовой договор!" });
-    return;
-  }
+  // if (checkUser && documentData.docType === "Трудовой договор") {
+  //   res
+  //     .status(409)
+  //     .json({ error: "Для данного пользователя существует трудовой договор!" });
+  //   return;
+  // }
 
   // Создаём новый документ
   const newDocument = {

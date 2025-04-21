@@ -14,5 +14,21 @@
     "state": "3",
     "date": "2025-03-17",
     "htmlContent": "D:\\Frontend\\Interlink\\Кадр\\server\\uploads\\documents\\91093c54-4a92-4526-8263-ec02b2eddafd\\htmlContent-91093c54-4a92-4526-8263-ec02b2eddafd.html"
+  },
+  {
+    "files": [],
+    "fullname": "Сотрудник №1",
+    "role": "Специалист",
+    "subdivision": "Отдел кадров",
+    "orgName": "ГУП \"Центр финансовых информационных технологий\"",
+    "phone": "985719996",
+    "email": "jsharipovamir@gmail.com",
+    "status": "Активный",
+    "userType": "Новый",
+    "id": "9bbb96a3-77cf-4272-bbf9-161e67f15a0c",
+    "docType": "Трудовой договор",
+    "state": "3",
+    "date": "2025-04-13",
+    "htmlContent": "C:\\Users\\User\\Desktop\\Interlink Modules\\interlink-HR\\server\\uploads\\documents\\9bbb96a3-77cf-4272-bbf9-161e67f15a0c\\htmlContent-9bbb96a3-77cf-4272-bbf9-161e67f15a0c.html"
   }
 ]

@@ -1,0 +1,1132 @@
+<!--docxjs library predefined styles--><style>
+.docx-wrapper { background: gray; padding: 30px; padding-bottom: 0px; display: flex; flex-flow: column; align-items: center; } 
+.docx-wrapper>section.docx { background: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); margin-bottom: 30px; }
+.docx { color: black; hyphens: auto; text-underline-position: from-font; }
+section.docx { box-sizing: border-box; display: flex; flex-flow: column nowrap; position: relative; overflow: hidden; }
+section.docx>article { margin-bottom: auto; z-index: 1; }
+section.docx>footer { z-index: 1; }
+.docx table { border-collapse: collapse; }
+.docx table td, .docx table th { vertical-align: top; }
+.docx p { margin: 0pt; min-height: 1em; }
+.docx span { white-space: pre-wrap; overflow-wrap: break-word; }
+.docx a { color: inherit; text-decoration: inherit; }
+.docx svg { fill: transparent; }
+</style><!--docxjs document theme values--><style>.docx {
+  --docx-majorHAnsi-font: Calibri Light;
+  --docx-minorHAnsi-font: Calibri;
+  --docx-dk1-color: #000000;
+  --docx-lt1-color: #FFFFFF;
+  --docx-dk2-color: #44546A;
+  --docx-lt2-color: #E7E6E6;
+  --docx-accent1-color: #4472C4;
+  --docx-accent2-color: #ED7D31;
+  --docx-accent3-color: #A5A5A5;
+  --docx-accent4-color: #FFC000;
+  --docx-accent5-color: #5B9BD5;
+  --docx-accent6-color: #70AD47;
+  --docx-hlink-color: #0563C1;
+  --docx-folHlink-color: #954F72;
+}
+</style><!--docxjs document styles--><style>.docx span {
+  font-family: var(--docx-minorHAnsi-font);
+  min-height: 11.00pt;
+  font-size: 11.00pt;
+}
+.docx p {
+  margin-bottom: 8.00pt;
+  line-height: 1.08;
+}
+p.docx_1 {
+  margin-top: 12.00pt;
+  margin-bottom: 0.00pt;
+}
+p.docx_1 span {
+  font-family: var(--docx-majorHAnsi-font);
+  color: #2F5496;
+  min-height: 16.00pt;
+  font-size: 16.00pt;
+}
+p.docx_1 span {
+  font-family: var(--docx-majorHAnsi-font);
+  color: #2F5496;
+  min-height: 16.00pt;
+  font-size: 16.00pt;
+}
+.docx table, table.docx_a1 td {
+  padding-top: 0.00pt;
+  padding-left: 5.40pt;
+  padding-bottom: 0.00pt;
+  padding-right: 5.40pt;
+}
+p.docx_a3 {
+  margin-left: 36.00pt;
+}
+span.docx_a4 {
+  color: #0563C1;
+  text-decoration: underline;
+}
+span.docx_a5 {
+  color: #605E5C;
+  background-color: #E1DFDD;
+}
+span.docx_a6 {
+  color: #954F72;
+  text-decoration: underline;
+}
+span.docx_10 {
+  font-family: var(--docx-majorHAnsi-font);
+  color: #2F5496;
+  min-height: 16.00pt;
+  font-size: 16.00pt;
+}
+span.docx_10 p {
+  margin-top: 12.00pt;
+  margin-bottom: 0.00pt;
+}
+span.docx_10 {
+  font-family: var(--docx-majorHAnsi-font);
+  color: #2F5496;
+  min-height: 16.00pt;
+  font-size: 16.00pt;
+}
+p.docx_a7 {
+  margin-top: 5.00pt;
+  margin-bottom: 5.00pt;
+  line-height: 1.00;
+}
+p.docx_a7 span {
+  font-family: 'Times New Roman';
+  min-height: 12.00pt;
+  font-size: 12.00pt;
+}
+span.docx_a8 {
+  font-weight: bold;
+}
+p.docx_a9 {
+  margin-top: 12.00pt;
+  margin-bottom: 0.00pt;
+}
+p.docx_a9 span {
+  font-family: var(--docx-majorHAnsi-font);
+  color: #2F5496;
+  min-height: 16.00pt;
+  font-size: 16.00pt;
+}
+p.docx_11 {
+  margin-bottom: 5.00pt;
+}
+</style><!--docxjs document numbering styles--><style>p.docx-num-6-0:before {
+  content: ""counter(docx-num-6-0, decimal)".\9";
+  counter-increment: docx-num-6-0;
+}
+p.docx-num-6-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 36.00pt;
+}
+p.docx-num-6-0 {
+  counter-reset: docx-num-6-1 0;
+}
+p.docx-num-6-1:before {
+  content: ""counter(docx-num-6-1, lower-alpha)".\9";
+  counter-increment: docx-num-6-1;
+}
+p.docx-num-6-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-6-1 {
+  counter-reset: docx-num-6-2 0;
+}
+p.docx-num-6-2:before {
+  content: ""counter(docx-num-6-2, lower-roman)".\9";
+  counter-increment: docx-num-6-2;
+}
+p.docx-num-6-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 108.00pt;
+}
+p.docx-num-6-2 {
+  counter-reset: docx-num-6-3 0;
+}
+p.docx-num-6-3:before {
+  content: ""counter(docx-num-6-3, decimal)".\9";
+  counter-increment: docx-num-6-3;
+}
+p.docx-num-6-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 144.00pt;
+}
+p.docx-num-6-3 {
+  counter-reset: docx-num-6-4 0;
+}
+p.docx-num-6-4:before {
+  content: ""counter(docx-num-6-4, lower-alpha)".\9";
+  counter-increment: docx-num-6-4;
+}
+p.docx-num-6-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 180.00pt;
+}
+p.docx-num-6-4 {
+  counter-reset: docx-num-6-5 0;
+}
+p.docx-num-6-5:before {
+  content: ""counter(docx-num-6-5, lower-roman)".\9";
+  counter-increment: docx-num-6-5;
+}
+p.docx-num-6-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 216.00pt;
+}
+p.docx-num-6-5 {
+  counter-reset: docx-num-6-6 0;
+}
+p.docx-num-6-6:before {
+  content: ""counter(docx-num-6-6, decimal)".\9";
+  counter-increment: docx-num-6-6;
+}
+p.docx-num-6-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 252.00pt;
+}
+p.docx-num-6-6 {
+  counter-reset: docx-num-6-7 0;
+}
+p.docx-num-6-7:before {
+  content: ""counter(docx-num-6-7, lower-alpha)".\9";
+  counter-increment: docx-num-6-7;
+}
+p.docx-num-6-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 288.00pt;
+}
+p.docx-num-6-7 {
+  counter-reset: docx-num-6-8 0;
+}
+p.docx-num-6-8:before {
+  content: ""counter(docx-num-6-8, lower-roman)".\9";
+  counter-increment: docx-num-6-8;
+}
+p.docx-num-6-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 324.00pt;
+}
+p.docx-num-1-0:before {
+  content: ""counter(docx-num-1-0, decimal)".\9";
+  counter-increment: docx-num-1-0;
+}
+p.docx-num-1-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 36.00pt;
+}
+p.docx-num-1-0 {
+  counter-reset: docx-num-1-1 0;
+}
+p.docx-num-1-1:before {
+  content: ""counter(docx-num-1-1, lower-alpha)".\9";
+  counter-increment: docx-num-1-1;
+}
+p.docx-num-1-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-1-1 {
+  counter-reset: docx-num-1-2 0;
+}
+p.docx-num-1-2:before {
+  content: ""counter(docx-num-1-2, lower-roman)".\9";
+  counter-increment: docx-num-1-2;
+}
+p.docx-num-1-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 108.00pt;
+}
+p.docx-num-1-2 {
+  counter-reset: docx-num-1-3 0;
+}
+p.docx-num-1-3:before {
+  content: ""counter(docx-num-1-3, decimal)".\9";
+  counter-increment: docx-num-1-3;
+}
+p.docx-num-1-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 144.00pt;
+}
+p.docx-num-1-3 {
+  counter-reset: docx-num-1-4 0;
+}
+p.docx-num-1-4:before {
+  content: ""counter(docx-num-1-4, lower-alpha)".\9";
+  counter-increment: docx-num-1-4;
+}
+p.docx-num-1-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 180.00pt;
+}
+p.docx-num-1-4 {
+  counter-reset: docx-num-1-5 0;
+}
+p.docx-num-1-5:before {
+  content: ""counter(docx-num-1-5, lower-roman)".\9";
+  counter-increment: docx-num-1-5;
+}
+p.docx-num-1-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 216.00pt;
+}
+p.docx-num-1-5 {
+  counter-reset: docx-num-1-6 0;
+}
+p.docx-num-1-6:before {
+  content: ""counter(docx-num-1-6, decimal)".\9";
+  counter-increment: docx-num-1-6;
+}
+p.docx-num-1-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 252.00pt;
+}
+p.docx-num-1-6 {
+  counter-reset: docx-num-1-7 0;
+}
+p.docx-num-1-7:before {
+  content: ""counter(docx-num-1-7, lower-alpha)".\9";
+  counter-increment: docx-num-1-7;
+}
+p.docx-num-1-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 288.00pt;
+}
+p.docx-num-1-7 {
+  counter-reset: docx-num-1-8 0;
+}
+p.docx-num-1-8:before {
+  content: ""counter(docx-num-1-8, lower-roman)".\9";
+  counter-increment: docx-num-1-8;
+}
+p.docx-num-1-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 324.00pt;
+}
+p.docx-num-2-0:before {
+  content: "\9";
+  counter-increment: docx-num-2-0;
+  font-family: Symbol;
+}
+p.docx-num-2-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 71.40pt;
+}
+p.docx-num-2-0 {
+  counter-reset: docx-num-2-1 0;
+}
+p.docx-num-2-1:before {
+  content: "o\9";
+  counter-increment: docx-num-2-1;
+  font-family: 'Courier New';
+}
+p.docx-num-2-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 107.40pt;
+}
+p.docx-num-2-1 {
+  counter-reset: docx-num-2-2 0;
+}
+p.docx-num-2-2:before {
+  content: "\9";
+  counter-increment: docx-num-2-2;
+  font-family: Wingdings;
+}
+p.docx-num-2-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 143.40pt;
+}
+p.docx-num-2-2 {
+  counter-reset: docx-num-2-3 0;
+}
+p.docx-num-2-3:before {
+  content: "\9";
+  counter-increment: docx-num-2-3;
+  font-family: Symbol;
+}
+p.docx-num-2-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 179.40pt;
+}
+p.docx-num-2-3 {
+  counter-reset: docx-num-2-4 0;
+}
+p.docx-num-2-4:before {
+  content: "o\9";
+  counter-increment: docx-num-2-4;
+  font-family: 'Courier New';
+}
+p.docx-num-2-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 215.40pt;
+}
+p.docx-num-2-4 {
+  counter-reset: docx-num-2-5 0;
+}
+p.docx-num-2-5:before {
+  content: "\9";
+  counter-increment: docx-num-2-5;
+  font-family: Wingdings;
+}
+p.docx-num-2-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 251.40pt;
+}
+p.docx-num-2-5 {
+  counter-reset: docx-num-2-6 0;
+}
+p.docx-num-2-6:before {
+  content: "\9";
+  counter-increment: docx-num-2-6;
+  font-family: Symbol;
+}
+p.docx-num-2-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 287.40pt;
+}
+p.docx-num-2-6 {
+  counter-reset: docx-num-2-7 0;
+}
+p.docx-num-2-7:before {
+  content: "o\9";
+  counter-increment: docx-num-2-7;
+  font-family: 'Courier New';
+}
+p.docx-num-2-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 323.40pt;
+}
+p.docx-num-2-7 {
+  counter-reset: docx-num-2-8 0;
+}
+p.docx-num-2-8:before {
+  content: "\9";
+  counter-increment: docx-num-2-8;
+  font-family: Wingdings;
+}
+p.docx-num-2-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 359.40pt;
+}
+p.docx-num-5-0:before {
+  content: ""counter(docx-num-5-0, decimal)".\9";
+  counter-increment: docx-num-5-0;
+}
+p.docx-num-5-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 54.00pt;
+}
+p.docx-num-5-0 {
+  counter-reset: docx-num-5-1 0;
+}
+p.docx-num-5-1:before {
+  content: ""counter(docx-num-5-1, lower-alpha)".\9";
+  counter-increment: docx-num-5-1;
+}
+p.docx-num-5-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 90.00pt;
+}
+p.docx-num-5-1 {
+  counter-reset: docx-num-5-2 0;
+}
+p.docx-num-5-2:before {
+  content: ""counter(docx-num-5-2, lower-roman)".\9";
+  counter-increment: docx-num-5-2;
+}
+p.docx-num-5-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 126.00pt;
+}
+p.docx-num-5-2 {
+  counter-reset: docx-num-5-3 0;
+}
+p.docx-num-5-3:before {
+  content: ""counter(docx-num-5-3, decimal)".\9";
+  counter-increment: docx-num-5-3;
+}
+p.docx-num-5-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 162.00pt;
+}
+p.docx-num-5-3 {
+  counter-reset: docx-num-5-4 0;
+}
+p.docx-num-5-4:before {
+  content: ""counter(docx-num-5-4, lower-alpha)".\9";
+  counter-increment: docx-num-5-4;
+}
+p.docx-num-5-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 198.00pt;
+}
+p.docx-num-5-4 {
+  counter-reset: docx-num-5-5 0;
+}
+p.docx-num-5-5:before {
+  content: ""counter(docx-num-5-5, lower-roman)".\9";
+  counter-increment: docx-num-5-5;
+}
+p.docx-num-5-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 234.00pt;
+}
+p.docx-num-5-5 {
+  counter-reset: docx-num-5-6 0;
+}
+p.docx-num-5-6:before {
+  content: ""counter(docx-num-5-6, decimal)".\9";
+  counter-increment: docx-num-5-6;
+}
+p.docx-num-5-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 270.00pt;
+}
+p.docx-num-5-6 {
+  counter-reset: docx-num-5-7 0;
+}
+p.docx-num-5-7:before {
+  content: ""counter(docx-num-5-7, lower-alpha)".\9";
+  counter-increment: docx-num-5-7;
+}
+p.docx-num-5-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 306.00pt;
+}
+p.docx-num-5-7 {
+  counter-reset: docx-num-5-8 0;
+}
+p.docx-num-5-8:before {
+  content: ""counter(docx-num-5-8, lower-roman)".\9";
+  counter-increment: docx-num-5-8;
+}
+p.docx-num-5-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 342.00pt;
+}
+p.docx-num-8-0:before {
+  content: ""counter(docx-num-8-0, decimal)"\9";
+  counter-increment: docx-num-8-0;
+}
+p.docx-num-8-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -24.00pt;
+  margin-left: 24.00pt;
+}
+p.docx-num-8-0 {
+  counter-reset: docx-num-8-1 0;
+}
+p.docx-num-8-1:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"\9";
+  counter-increment: docx-num-8-1;
+}
+p.docx-num-8-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -24.00pt;
+  margin-left: 24.00pt;
+}
+p.docx-num-8-1 {
+  counter-reset: docx-num-8-2 0;
+}
+p.docx-num-8-2:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"\9";
+  counter-increment: docx-num-8-2;
+}
+p.docx-num-8-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -36.00pt;
+  margin-left: 36.00pt;
+}
+p.docx-num-8-2 {
+  counter-reset: docx-num-8-3 0;
+}
+p.docx-num-8-3:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"."counter(docx-num-8-3, decimal)"\9";
+  counter-increment: docx-num-8-3;
+}
+p.docx-num-8-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -36.00pt;
+  margin-left: 36.00pt;
+}
+p.docx-num-8-3 {
+  counter-reset: docx-num-8-4 0;
+}
+p.docx-num-8-4:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"."counter(docx-num-8-3, decimal)"."counter(docx-num-8-4, decimal)"\9";
+  counter-increment: docx-num-8-4;
+}
+p.docx-num-8-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -54.00pt;
+  margin-left: 54.00pt;
+}
+p.docx-num-8-4 {
+  counter-reset: docx-num-8-5 0;
+}
+p.docx-num-8-5:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"."counter(docx-num-8-3, decimal)"."counter(docx-num-8-4, decimal)"."counter(docx-num-8-5, decimal)"\9";
+  counter-increment: docx-num-8-5;
+}
+p.docx-num-8-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -54.00pt;
+  margin-left: 54.00pt;
+}
+p.docx-num-8-5 {
+  counter-reset: docx-num-8-6 0;
+}
+p.docx-num-8-6:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"."counter(docx-num-8-3, decimal)"."counter(docx-num-8-4, decimal)"."counter(docx-num-8-5, decimal)"."counter(docx-num-8-6, decimal)"\9";
+  counter-increment: docx-num-8-6;
+}
+p.docx-num-8-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -72.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-8-6 {
+  counter-reset: docx-num-8-7 0;
+}
+p.docx-num-8-7:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"."counter(docx-num-8-3, decimal)"."counter(docx-num-8-4, decimal)"."counter(docx-num-8-5, decimal)"."counter(docx-num-8-6, decimal)"."counter(docx-num-8-7, decimal)"\9";
+  counter-increment: docx-num-8-7;
+}
+p.docx-num-8-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -72.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-8-7 {
+  counter-reset: docx-num-8-8 0;
+}
+p.docx-num-8-8:before {
+  content: ""counter(docx-num-8-0, decimal)"."counter(docx-num-8-1, decimal)"."counter(docx-num-8-2, decimal)"."counter(docx-num-8-3, decimal)"."counter(docx-num-8-4, decimal)"."counter(docx-num-8-5, decimal)"."counter(docx-num-8-6, decimal)"."counter(docx-num-8-7, decimal)"."counter(docx-num-8-8, decimal)"\9";
+  counter-increment: docx-num-8-8;
+}
+p.docx-num-8-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -72.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-3-0:before {
+  content: "\9";
+  counter-increment: docx-num-3-0;
+  font-family: Symbol;
+}
+p.docx-num-3-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-3-0 {
+  counter-reset: docx-num-3-1 0;
+}
+p.docx-num-3-1:before {
+  content: "o\9";
+  counter-increment: docx-num-3-1;
+  font-family: 'Courier New';
+}
+p.docx-num-3-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 108.00pt;
+}
+p.docx-num-3-1 {
+  counter-reset: docx-num-3-2 0;
+}
+p.docx-num-3-2:before {
+  content: "\9";
+  counter-increment: docx-num-3-2;
+  font-family: Wingdings;
+}
+p.docx-num-3-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 144.00pt;
+}
+p.docx-num-3-2 {
+  counter-reset: docx-num-3-3 0;
+}
+p.docx-num-3-3:before {
+  content: "\9";
+  counter-increment: docx-num-3-3;
+  font-family: Symbol;
+}
+p.docx-num-3-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 180.00pt;
+}
+p.docx-num-3-3 {
+  counter-reset: docx-num-3-4 0;
+}
+p.docx-num-3-4:before {
+  content: "o\9";
+  counter-increment: docx-num-3-4;
+  font-family: 'Courier New';
+}
+p.docx-num-3-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 216.00pt;
+}
+p.docx-num-3-4 {
+  counter-reset: docx-num-3-5 0;
+}
+p.docx-num-3-5:before {
+  content: "\9";
+  counter-increment: docx-num-3-5;
+  font-family: Wingdings;
+}
+p.docx-num-3-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 252.00pt;
+}
+p.docx-num-3-5 {
+  counter-reset: docx-num-3-6 0;
+}
+p.docx-num-3-6:before {
+  content: "\9";
+  counter-increment: docx-num-3-6;
+  font-family: Symbol;
+}
+p.docx-num-3-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 288.00pt;
+}
+p.docx-num-3-6 {
+  counter-reset: docx-num-3-7 0;
+}
+p.docx-num-3-7:before {
+  content: "o\9";
+  counter-increment: docx-num-3-7;
+  font-family: 'Courier New';
+}
+p.docx-num-3-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 324.00pt;
+}
+p.docx-num-3-7 {
+  counter-reset: docx-num-3-8 0;
+}
+p.docx-num-3-8:before {
+  content: "\9";
+  counter-increment: docx-num-3-8;
+  font-family: Wingdings;
+}
+p.docx-num-3-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 360.00pt;
+}
+p.docx-num-7-0:before {
+  content: ""counter(docx-num-7-0, decimal)".\9";
+  counter-increment: docx-num-7-0;
+}
+p.docx-num-7-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 36.00pt;
+}
+p.docx-num-7-0 {
+  counter-reset: docx-num-7-1 0;
+}
+p.docx-num-7-1:before {
+  content: ""counter(docx-num-7-1, lower-alpha)".\9";
+  counter-increment: docx-num-7-1;
+}
+p.docx-num-7-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-7-1 {
+  counter-reset: docx-num-7-2 0;
+}
+p.docx-num-7-2:before {
+  content: ""counter(docx-num-7-2, lower-roman)".\9";
+  counter-increment: docx-num-7-2;
+}
+p.docx-num-7-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 108.00pt;
+}
+p.docx-num-7-2 {
+  counter-reset: docx-num-7-3 0;
+}
+p.docx-num-7-3:before {
+  content: ""counter(docx-num-7-3, decimal)".\9";
+  counter-increment: docx-num-7-3;
+}
+p.docx-num-7-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 144.00pt;
+}
+p.docx-num-7-3 {
+  counter-reset: docx-num-7-4 0;
+}
+p.docx-num-7-4:before {
+  content: ""counter(docx-num-7-4, lower-alpha)".\9";
+  counter-increment: docx-num-7-4;
+}
+p.docx-num-7-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 180.00pt;
+}
+p.docx-num-7-4 {
+  counter-reset: docx-num-7-5 0;
+}
+p.docx-num-7-5:before {
+  content: ""counter(docx-num-7-5, lower-roman)".\9";
+  counter-increment: docx-num-7-5;
+}
+p.docx-num-7-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 216.00pt;
+}
+p.docx-num-7-5 {
+  counter-reset: docx-num-7-6 0;
+}
+p.docx-num-7-6:before {
+  content: ""counter(docx-num-7-6, decimal)".\9";
+  counter-increment: docx-num-7-6;
+}
+p.docx-num-7-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 252.00pt;
+}
+p.docx-num-7-6 {
+  counter-reset: docx-num-7-7 0;
+}
+p.docx-num-7-7:before {
+  content: ""counter(docx-num-7-7, lower-alpha)".\9";
+  counter-increment: docx-num-7-7;
+}
+p.docx-num-7-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 288.00pt;
+}
+p.docx-num-7-7 {
+  counter-reset: docx-num-7-8 0;
+}
+p.docx-num-7-8:before {
+  content: ""counter(docx-num-7-8, lower-roman)".\9";
+  counter-increment: docx-num-7-8;
+}
+p.docx-num-7-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -9.00pt;
+  margin-left: 324.00pt;
+}
+p.docx-num-4-0:before {
+  content: "\9";
+  counter-increment: docx-num-4-0;
+  font-family: Symbol;
+}
+p.docx-num-4-0 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 72.00pt;
+}
+p.docx-num-4-0 {
+  counter-reset: docx-num-4-1 0;
+}
+p.docx-num-4-1:before {
+  content: "o\9";
+  counter-increment: docx-num-4-1;
+  font-family: 'Courier New';
+}
+p.docx-num-4-1 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 108.00pt;
+}
+p.docx-num-4-1 {
+  counter-reset: docx-num-4-2 0;
+}
+p.docx-num-4-2:before {
+  content: "\9";
+  counter-increment: docx-num-4-2;
+  font-family: Wingdings;
+}
+p.docx-num-4-2 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 144.00pt;
+}
+p.docx-num-4-2 {
+  counter-reset: docx-num-4-3 0;
+}
+p.docx-num-4-3:before {
+  content: "\9";
+  counter-increment: docx-num-4-3;
+  font-family: Symbol;
+}
+p.docx-num-4-3 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 180.00pt;
+}
+p.docx-num-4-3 {
+  counter-reset: docx-num-4-4 0;
+}
+p.docx-num-4-4:before {
+  content: "o\9";
+  counter-increment: docx-num-4-4;
+  font-family: 'Courier New';
+}
+p.docx-num-4-4 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 216.00pt;
+}
+p.docx-num-4-4 {
+  counter-reset: docx-num-4-5 0;
+}
+p.docx-num-4-5:before {
+  content: "\9";
+  counter-increment: docx-num-4-5;
+  font-family: Wingdings;
+}
+p.docx-num-4-5 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 252.00pt;
+}
+p.docx-num-4-5 {
+  counter-reset: docx-num-4-6 0;
+}
+p.docx-num-4-6:before {
+  content: "\9";
+  counter-increment: docx-num-4-6;
+  font-family: Symbol;
+}
+p.docx-num-4-6 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 288.00pt;
+}
+p.docx-num-4-6 {
+  counter-reset: docx-num-4-7 0;
+}
+p.docx-num-4-7:before {
+  content: "o\9";
+  counter-increment: docx-num-4-7;
+  font-family: 'Courier New';
+}
+p.docx-num-4-7 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 324.00pt;
+}
+p.docx-num-4-7 {
+  counter-reset: docx-num-4-8 0;
+}
+p.docx-num-4-8:before {
+  content: "\9";
+  counter-increment: docx-num-4-8;
+  font-family: Wingdings;
+}
+p.docx-num-4-8 {
+  display: list-item;
+  list-style-position: inside;
+  list-style-type: none;
+  text-indent: -18.00pt;
+  margin-left: 360.00pt;
+}
+.docx-wrapper {
+  counter-reset: docx-num-6-0 0 docx-num-6-1 0 docx-num-6-2 0 docx-num-6-3 0 docx-num-6-4 0 docx-num-6-5 0 docx-num-6-6 0 docx-num-6-7 0 docx-num-6-8 0 docx-num-1-0 0 docx-num-1-1 0 docx-num-1-2 0 docx-num-1-3 0 docx-num-1-4 0 docx-num-1-5 0 docx-num-1-6 0 docx-num-1-7 0 docx-num-1-8 0 docx-num-2-0 0 docx-num-2-1 0 docx-num-2-2 0 docx-num-2-3 0 docx-num-2-4 0 docx-num-2-5 0 docx-num-2-6 0 docx-num-2-7 0 docx-num-2-8 0 docx-num-5-0 0 docx-num-5-1 0 docx-num-5-2 0 docx-num-5-3 0 docx-num-5-4 0 docx-num-5-5 0 docx-num-5-6 0 docx-num-5-7 0 docx-num-5-8 0 docx-num-8-0 0 docx-num-8-1 0 docx-num-8-2 0 docx-num-8-3 0 docx-num-8-4 0 docx-num-8-5 0 docx-num-8-6 0 docx-num-8-7 0 docx-num-8-8 0 docx-num-3-0 0 docx-num-3-1 0 docx-num-3-2 0 docx-num-3-3 0 docx-num-3-4 0 docx-num-3-5 0 docx-num-3-6 0 docx-num-3-7 0 docx-num-3-8 0 docx-num-7-0 0 docx-num-7-1 0 docx-num-7-2 0 docx-num-7-3 0 docx-num-7-4 0 docx-num-7-5 0 docx-num-7-6 0 docx-num-7-7 0 docx-num-7-8 0 docx-num-4-0 0 docx-num-4-1 0 docx-num-4-2 0 docx-num-4-3 0 docx-num-4-4 0 docx-num-4-5 0 docx-num-4-6 0 docx-num-4-7 0 docx-num-4-8 0;
+}
+</style><div class="docx-wrapper"><section class="docx" style="padding: 56.7pt 42.5pt 56.7pt 85.05pt; width: 595.3pt; min-height: 841.9pt;"><article><p class="docx_a9" style="text-align: center;"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Оглавление</span></p><p class="docx_11"><a href="#_Toc188453330"><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">1.1</span><span lang="null" style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Реестр организации</span><span style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span style="min-height: 14pt; font-size: 14pt;"></span><span style="min-height: 14pt; font-size: 14pt;">2</span></a></p><p class="docx_11"><a href="#_Toc188453331"><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">1.2</span><span lang="null" style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Страница создание организации</span><span style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span style="min-height: 14pt; font-size: 14pt;"></span><span style="min-height: 14pt; font-size: 14pt;">4</span></a></p><p class="docx_11"><a href="#_Toc188453332"><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">1.3</span><span lang="null" style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Карточка организации</span><span style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span style="min-height: 14pt; font-size: 14pt;"></span><span style="min-height: 14pt; font-size: 14pt;">5</span></a></p><p class="docx_11"><a href="#_Toc188453333"><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">1.4</span><span lang="null" style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Карточка организации – данные по модулям</span><span style="min-height: 14pt; font-size: 14pt;"><span> </span></span><span style="min-height: 14pt; font-size: 14pt;"></span><span style="min-height: 14pt; font-size: 14pt;">6</span></a></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p class="docx_1 docx-num-8-1"><span id="_Toc188453330"></span><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; color: rgb(0, 0, 0); min-height: 14pt; font-size: 14pt;">Реестр организации</span></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Основная логика и структура данных в новом СРМ останутся неизменными за исключением редких случаев, таких как добавление новых типов данных или изменений в дизайне. В реестре представлены списки организаций, которые отображаются в виде карточек (далее — карточка организации). </span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">К</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">аждая карточка</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> </span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">содерж</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">ит</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> ключевую информацию об организации.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Типы данных, представленные в реестре (см. рисунок №1), были дополнены следующими категориями:</span></p><p class="docx_a3 docx-num-1-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Категория бюджета:</span></p><p class="docx_a3 docx-num-2-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Республиканский</span></p><p class="docx_a3 docx-num-2-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Местный</span></p><p class="docx_a3 docx-num-1-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Тип организации</span><span lang="en-US" style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">:</span></p><p class="docx_a3 docx-num-3-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Бюджетная организация</span></p><p class="docx_a3 docx-num-3-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Коммерческая организация</span></p><p class="docx_a3 docx-num-3-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Министерство финансов</span></p><p class="docx_a3 docx-num-1-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Регионы</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> (Код территории)</span><span lang="en-US" style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">:</span></p><p class="docx_a3 docx-num-4-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Список регионов…</span></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Что касается дизайна, примерный интерфейс представлен на рисунке №1.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Рисунок №1. Страница реестра организации.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"><div style="display: inline-block; position: relative; text-indent: 0px; width: 467.73pt; height: 308pt;"><img src="blob:http://localhost:5173/44d3031f-7a5a-4aad-95e6-2723e5142d23" style="position: relative; left: 0pt; top: 0pt; width: 467.73pt; height: 308pt;"></div></span><span id="_GoBack"></span></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p class="docx_1 docx-num-8-1"><span id="_Toc188453331"></span><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; color: rgb(0, 0, 0); min-height: 14pt; font-size: 14pt;">Страница создание организации</span></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Страница создания организации включает текущие поля из существующей версии СРМ. В обновлённой версии предлагаем добавить следующие новые поля и элементы управления:</span></p><p class="docx_a3 docx-num-6-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Категория бюджета:</span></p><p class="docx_a3 docx-num-2-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Республиканский</span></p><p class="docx_a3 docx-num-2-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Местный</span></p><p class="docx_a3 docx-num-6-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Тип организации</span><span lang="en-US" style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">:</span></p><p class="docx_a3 docx-num-3-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Бюджетная организация</span></p><p class="docx_a3 docx-num-3-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Коммерческая организация</span></p><p class="docx_a3 docx-num-3-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Министерство финансов</span></p><p class="docx_a3 docx-num-6-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Регионы (Код территории)</span><span lang="en-US" style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">:</span></p><p class="docx_a3 docx-num-4-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Список регионов…</span></p><p class="docx_a3 docx-num-6-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Добавить документ</span></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Рисунок №2. Страница создание организации.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"><div style="display: inline-block; position: relative; text-indent: 0px; width: 372.48pt; height: 207.36pt;"><img src="blob:http://localhost:5173/8f83898b-2c46-45e2-aba1-a01448ba9940" style="position: relative; left: 0pt; top: 0pt; width: 372.48pt; height: 207.36pt;"></div></span></p><p></p><p></p><p></p><p></p><p class="docx_1 docx-num-8-1"><span id="_Toc188453332"></span><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; color: rgb(0, 0, 0); min-height: 14pt; font-size: 14pt;">Карточка организации</span></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Созданную карточку организации можно </span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">просмотреть на отдельной странице, кликнув на соответствующую карточку в реестре.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">На странице карточки организации можно увидеть возможность редактирование карточк</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">и</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> организации/информацию об организации.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Секция «Карточка организации» состоит из двух компонентов:</span></p><p class="docx_a3 docx-num-7-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Информация об организации</span></p><p class="docx_a3 docx-num-7-0"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Информация об пользователях</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Информация об организации</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> — эта область содержит данные, указанные при создании и заполнении карточки организации.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; min-height: 14pt; font-size: 14pt;">Информация о пользователях</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> — изначально данная область может быть пустой, так как отдел информационной безопасности (ИБ) должен привязать пользователей к организации на основе её данных. После создания пользователей информация о ключевых сотрудниках (например, руководителе и главном бухгалтере) отобразится в этой области.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Кроме того, здесь доступна кнопка «Структура организации», позволяющая просмотреть организационную структуру. </span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">При отсутствии структуры организации, сотрудник организации должен оформить запрос на добавление структуры своего организации посредством модуля «Заявки».</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> Когда заявка будет одобрена, структура автоматически отобразиться в карточки организации.</span></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Рисунок №3. Страница карточки организации.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Для получения изображения в более высоком качестве воспользуйтесь следующей ссылкой: </span><a href="https://www.canva.com/design/DAGc5CRhKK0/waUy7Ifu-YJ_GFkx3Csf_Q/view?utm_content=DAGc5CRhKK0&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=uniquelinks&amp;utlId=h6e62abd8ee"><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Ссылка на canva.com</span></a></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"><div style="display: inline-block; position: relative; text-indent: 0px; width: 467.75pt; height: 263.1pt;"><img src="blob:http://localhost:5173/cddb8c1b-59c6-4ba6-9d96-ba55a328a03b" style="position: relative; left: 0pt; top: 0pt; width: 467.75pt; height: 263.1pt;"></div></span></p><p class="docx_1 docx-num-8-1"><span id="_Toc188453333"></span><span style="font-family: &quot;Palatino Linotype&quot;; font-weight: bold; color: rgb(0, 0, 0); min-height: 14pt; font-size: 14pt;">Карточка организации – данные по модулям</span></p><p class="docx_a7"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Все необходимые данные, связанные с модулями, отображаются в секции </span><span class="docx_a8" style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">«Данные по модулям»</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">. Эта секция включает вкладки, соответствующие модулям, с которыми взаимодействовала организация.</span></p><p class="docx_a7"><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">На рисунке №4 показан пример: во вкладке </span><span class="docx_a8" style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">«Письма»</span><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;"> отображаются списки входящих писем и их данные.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; min-height: 14pt; font-size: 14pt;">Информация в остальных вкладках будет представлена аналогичным образом.</span></p><p></p><p></p><p></p><p></p><p></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Рисунок №4. Страница карточки организации – Данные по модулям.</span></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Для получения изображения в более высоком качестве воспользуйтесь следующей ссылкой: </span><a href="https://www.canva.com/design/DAGc5CRhKK0/waUy7Ifu-YJ_GFkx3Csf_Q/view?utm_content=DAGc5CRhKK0&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=uniquelinks&amp;utlId=h6e62abd8ee"><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">Ссылка на c</span><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">a</span><span class="docx_a4" style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;">nva.com</span></a></p><p><span style="font-family: &quot;Palatino Linotype&quot;; font-style: italic; min-height: 14pt; font-size: 14pt;"><div style="display: inline-block; position: relative; text-indent: 0px; width: 247.76pt; height: 304.94pt;"><img src="blob:http://localhost:5173/c4409b17-3318-4b36-82a0-fad915742a33" style="position: relative; left: 0pt; top: 0pt; width: 250.48pt; height: 308.28pt;"></div></span></p><p></p><p></p></article></section></div>
