@@ -1,15 +1,15 @@
 [
   {
     "files": [],
-    "id": "a48cf5d7-299d-4eb5-8def-69d25bd1c024",
-    "month": "Tue, 01 Apr 2025 05:41:04 GMT",
-    "year": "Tue, 01 Apr 2025 05:41:04 GMT",
+    "id": "0919bb7f-a5a1-43a9-8683-a95497fd3589",
+    "month": "Mon, 21 Apr 2025 09:54:34 GMT",
+    "year": "Mon, 21 Apr 2025 09:54:34 GMT",
     "days": "30",
-    "workingDays": "Wed, 23 Apr 2025 19:00:00 GMT",
-    "weekendDays": "Wed, 02 Apr 2025 19:00:00 GMT",
+    "workingDays": "Sun, 27 Apr 2025 19:00:00 GMT",
+    "weekendDays": "Sun, 06 Apr 2025 19:00:00 GMT",
     "executor": "Зиёева Адиба",
-    "state": "268",
-    "htmlContent": "D:\\Frontend\\Interlink\\Кадр\\server\\uploads\\workingHours\\a48cf5d7-299d-4eb5-8def-69d25bd1c024\\htmlContent-a48cf5d7-299d-4eb5-8def-69d25bd1c024.html",
+    "state": "5",
+    "htmlContent": "D:\\Frontend\\Interlink\\Кадр\\server\\uploads\\workingHours\\0919bb7f-a5a1-43a9-8683-a95497fd3589\\htmlContent-0919bb7f-a5a1-43a9-8683-a95497fd3589.html",
     "signatureList": [
       {
         "id": 1,
@@ -21,33 +21,7 @@
         "id": 2,
         "fullname": "Ахметова Мадина",
         "role": "Начальника отдела",
-        "status": false
-      }
-    ]
-  },
-  {
-    "files": [],
-    "id": "1cfa5ad2-301a-4e15-a587-ff3e71f975e4",
-    "month": "Sun, 20 Apr 2025 11:47:32 GMT",
-    "year": "Sun, 20 Apr 2025 11:47:32 GMT",
-    "days": "30",
-    "workingDays": "Sat, 19 Apr 2025 19:00:00 GMT",
-    "weekendDays": "Mon, 07 Apr 2025 19:00:00 GMT",
-    "executor": "Зиёева Адиба",
-    "state": "2",
-    "htmlContent": "C:\\Users\\User\\Desktop\\Interlink Modules\\interlink-HR\\server\\uploads\\workingHours\\1cfa5ad2-301a-4e15-a587-ff3e71f975e4\\htmlContent-1cfa5ad2-301a-4e15-a587-ff3e71f975e4.html",
-    "signatureList": [
-      {
-        "id": 1,
-        "fullName": "Зиёева Адиба",
-        "role": "Начальника отдела",
-        "status": false
-      },
-      {
-        "id": 2,
-        "fullName": "Ахметова Мадина",
-        "role": "Начальника отдела",
-        "status": false
+        "status": true
       }
     ]
   }

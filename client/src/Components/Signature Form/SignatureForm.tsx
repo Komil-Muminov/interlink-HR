@@ -10,7 +10,7 @@ export interface ICordinationUserListData {
   id: number;
   fullname: string;
   role: string;
-  status: boolean;
+  status?: boolean;
 }
 
 interface ISignatureCoordination {
@@ -38,6 +38,8 @@ export const SignatureForm = ({ item, onSubmit }: IProps) => {
     setValue("fullname", item.fullname);
     setValue("role", item.role);
   }, [item, setValue]);
+
+  console.log(item);
 
   return (
     <div style={{ width: "100%", display: "flex", gap: "10px" }}>

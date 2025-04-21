@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 
 interface TProps {
   register?: any;
-  idValue: string;
+  idValue?: string;
   labelValue: string;
   borderRadiusStyle: string;
   heightStyle: string;
@@ -24,9 +24,11 @@ const Input = ({
   disabled,
   value,
 }: TProps) => {
+  const isRegister = register ? { ...register(idValue) } : null;
+
   return (
     <TextField
-      {...register(idValue)}
+      {...isRegister}
       id={idValue}
       value={value}
       label={labelValue}

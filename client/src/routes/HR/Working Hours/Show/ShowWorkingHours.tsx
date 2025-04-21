@@ -18,22 +18,34 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { queryClient } from "../../../../API/hooks/queryClient";
 import { getWorkingHoursById } from "../../../../API/services/workingHours/getWorkingHoursById";
 import { updateWorkingHoursById } from "../../../../API/services/workingHours/updateWorkingHoursById";
-import { IWorkingHours } from "../../../../API/services/types/WorkingHours";
+import {
+  ISignatureList,
+  IWorkingHours,
+} from "../../../../API/services/types/WorkingHours";
 import PanelControl from "../../../../UI/Panel Control/PanelControl";
 import "dayjs/locale/ru"; // Подключаем локаль для русских названий месяцев
 import { getMonth, getYear } from "../../../../API/hooks/getData";
 
 const ShowWorkingHours = () => {
-  const { register, control, watch, reset } = useForm<IWorkingHours>({
-    defaultValues: {
-      month: null,
-      year: null,
-      days: "",
-      workingDays: null,
-      weekendDays: null,
-      executor: "",
-    },
-  });
+  // const { register, control, watch, reset } = useForm<IWorkingHours>({
+  //   defaultValues: {
+  //     month: null,
+  //     year: null,
+  //     days: "",
+  //     workingDays: null,
+  //     weekendDays: null,
+  //     executor: "",
+  //   },
+  // });
+
+  const defaultValues = {
+    month: null,
+    year: null,
+    days: "144",
+    workingDays: null,
+    weekendDays: null,
+    executor: "",
+  };
 
   const { id: workingHoursId } = useParams();
 
@@ -54,11 +66,11 @@ const ShowWorkingHours = () => {
       getWorkingHoursByIdQuery.data
     ) {
       setCurrentWorkingHours(getWorkingHoursByIdQuery.data);
-      reset(getWorkingHoursByIdQuery.data); // Обновляем форму с новыми данными
+      // reset(getWorkingHoursByIdQuery.data); // Обновляем форму с новыми данными
     } else if (getWorkingHoursByIdQuery.status === "error") {
       console.error(getWorkingHoursByIdQuery.error);
     }
-  }, [getWorkingHoursByIdQuery.data, reset]);
+  }, [getWorkingHoursByIdQuery.data]);
 
   // PARSER DOCX-PREVIEW
 
@@ -69,9 +81,17 @@ const ShowWorkingHours = () => {
     typeof currentWorkingHours?.state === "string" &&
     parseInt(currentWorkingHours.state) === 2;
 
-  const approvalState =
+  console.log(currentWorkingHours?.signatureList);
+
+  const approvalStatus = currentWorkingHours?.signatureList?.every(
+    (e) => e.status === true
+  );
+
+  const showSignatureState =
     typeof currentWorkingHours?.state === "string" &&
-    parseInt(currentWorkingHours.state) >= 4;
+    parseInt(currentWorkingHours.state) >= 5;
+
+  console.log(showSignatureState);
 
   const showCorditaionSection =
     typeof currentWorkingHours?.state === "string" &&
@@ -115,8 +135,8 @@ const ShowWorkingHours = () => {
         // Сохраняем исходный HTML
         const generatedHTML = container.innerHTML;
         setOriginalHTML(generatedHTML);
-        // Если approvalState уже true – сразу комбинируем
-        if (approvalState) {
+        // Если approvalStatus уже true – сразу комбинируем
+        if (approvalStatus) {
           setTextOfDoc(generatedHTML + affirmationHTML);
         } else {
           setTextOfDoc(generatedHTML);
@@ -128,13 +148,15 @@ const ShowWorkingHours = () => {
 
   useEffect(() => {
     if (originalHTML) {
-      if (approvalState) {
+      if (showSignatureState) {
         setTextOfDoc(originalHTML + affirmationHTML);
       } else {
         setTextOfDoc(originalHTML);
       }
     }
-  }, [approvalState, originalHTML]);
+  }, [showSignatureState, originalHTML]);
+
+  console.log(approvalStatus);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
@@ -165,14 +187,14 @@ const ShowWorkingHours = () => {
 
   const showContract =
     (currentWorkingHours?.htmlContent || textOfDoc) +
-    (approvalState ? affirmationHTML : "");
+    (showSignatureState ? affirmationHTML : "");
 
   interface IUpdateWorkingHours {
     workingHoursId: string;
     htmlContent?: string;
     signatureList?: Array<{
       id: number;
-      fullName: string;
+      fullname: string;
       role: string;
       status: boolean;
     }>;
@@ -204,36 +226,36 @@ const ShowWorkingHours = () => {
         signatureList: [
           {
             id: 1,
-            fullName: "Зиёева Адиба",
+            fullname: "Зиёева Адиба",
             role: "Начальника отдела",
-            status: false,
+            status: approvalStatus ? true : false,
           },
           {
             id: 2,
-            fullName: "Ахметова Мадина",
+            fullname: "Ахметова Мадина",
             role: "Начальника отдела",
-            status: false,
+            status: approvalStatus ? true : false,
           },
         ],
       });
   };
 
-  const AddSignature = (data) => {
+  const AddSignature = (data: ISignatureList) => {
     console.log(data);
 
-    //   // if (workingHoursId && currentWorkingHours) {
-    //   //   const updatedSignatures = currentWorkingHours.signatureList.map(
-    //   //     (signature) =>
-    //   //       signature.id === signatureId
-    //   //         ? { ...signature, status: !signature.status } // меняем статус только у нужной подписи
-    //   //         : signature
-    //  } //   );
+    if (workingHoursId && currentWorkingHours) {
+      const updatedSignatures = currentWorkingHours.signatureList.map(
+        (signature) =>
+          signature.fullname === data.fullname
+            ? { ...signature, status: !signature.status } // меняем статус только у нужной подписи
+            : signature
+      );
 
-    //   //   updateWorkingHoursByIdMutate.mutate({
-    //   //     workingHoursId: workingHoursId,
-    //   //     signatureList: updatedSignatures,
-    //   //   });
-    //
+      updateWorkingHoursByIdMutate.mutate({
+        workingHoursId: workingHoursId,
+        signatureList: updatedSignatures,
+      });
+    }
   };
 
   const [moreOrgInfo, setMoreOrgInfo] = useState<boolean>(false);
@@ -249,7 +271,20 @@ const ShowWorkingHours = () => {
   const currentMonth = getMonth(currentWorkingHours?.month);
   const currentYear = getYear(currentWorkingHours?.year);
 
-  console.log(currentWorkingHours);
+  const MONTHS_RU = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+  ];
 
   return (
     <main className="show-working-hours">
@@ -257,7 +292,7 @@ const ShowWorkingHours = () => {
       <PanelControl
         currentDocument={currentWorkingHours}
         saveButtonState={true}
-        approvalButtonState={!approvalState}
+        approvalButtonState={!approvalStatus}
         handleApproval={handleUpdateData}
         scrollTo={scrollTo}
         setCurrentPage={setCurrentPage}
@@ -266,68 +301,81 @@ const ShowWorkingHours = () => {
       <TitleSection title="Данные о месяце" />
       <section>
         <form>
-          <DatePickerUI
-            control={control}
-            nameValue="month"
+          <Input
+            classname="crtPrimaryDocs__form--isDataSuccess"
             labelValue="Месяц"
+            value={
+              currentWorkingHours?.year
+                ? MONTHS_RU[
+                    new Date(currentWorkingHours.year.toString()).getMonth()
+                  ]
+                : ""
+            }
             borderRadiusStyle="30px"
             heightStyle="90%"
             widthStyle="48%"
-            views={["month"]}
             disabled={true}
-            value={null}
           />
-          <DatePickerUI
-            control={control}
-            nameValue="year"
+          <Input
+            classname="crtPrimaryDocs__form--isDataSuccess"
             labelValue="Год"
+            value={
+              currentWorkingHours?.year
+                ? new Date(currentWorkingHours.year.toString())
+                    .getFullYear()
+                    .toString()
+                : ""
+            }
             borderRadiusStyle="30px"
             heightStyle="90%"
             widthStyle="48%"
-            views={["year"]}
             disabled={true}
-            value={null}
+          />
+          <Input
+            classname="crtPrimaryDocs__form--isDataSuccess"
+            labelValue="Дни"
+            value={currentWorkingHours?.days}
+            borderRadiusStyle="30px"
+            heightStyle="90%"
+            widthStyle="48%"
+            disabled={true}
+          />
+          <Input
+            classname="crtPrimaryDocs__form--isDataSuccess"
+            labelValue="Рабочие дни"
+            value={
+              currentWorkingHours?.workingDays
+                ? new Date(currentWorkingHours.workingDays.toString())
+                    .getDate()
+                    .toString()
+                : ""
+            }
+            borderRadiusStyle="30px"
+            heightStyle="90%"
+            widthStyle="48%"
+            disabled={true}
+          />
+          <Input
+            classname="crtPrimaryDocs__form--isDataSuccess"
+            labelValue="Выходные дни"
+            value={
+              currentWorkingHours?.weekendDays
+                ? new Date(currentWorkingHours.weekendDays.toString())
+                    .getDate()
+                    .toString()
+                : ""
+            }
+            borderRadiusStyle="30px"
+            heightStyle="90%"
+            widthStyle="48%"
+            disabled={true}
           />
 
           <Input
-            register={register}
-            classname="crtPrimaryDocs__form--isDataSuccess"
-            idValue="days"
-            labelValue="Дни"
-            value={"12"}
-            borderRadiusStyle="30px"
-            heightStyle="90%"
-            widthStyle="48%"
-            disabled={true}
-          />
-          <DatePickerUI
-            control={control}
-            nameValue="workingDays"
-            labelValue="Рабочие дни"
-            borderRadiusStyle="30px"
-            heightStyle="90%"
-            widthStyle="48%"
-            views={["day"]}
-            disabled={true}
-            value={null}
-          />
-          <DatePickerUI
-            control={control}
-            nameValue="weekendDays"
-            labelValue="Выходные дни"
-            borderRadiusStyle="30px"
-            heightStyle="90%"
-            widthStyle="48%"
-            views={["day"]}
-            disabled={true}
-            value={null}
-          />
-          <Input
-            register={register}
             classname="crtPrimaryDocs__form--isDataSuccess"
             idValue="executor"
             labelValue="Ответственное лицо"
-            value="Зиёева Адиба"
+            value={currentWorkingHours?.executor}
             borderRadiusStyle="30px"
             heightStyle="90%"
             widthStyle="48%"
@@ -364,14 +412,14 @@ const ShowWorkingHours = () => {
             <div className="wrapper-doc-viewer-buttons">
               <div className="panel-control-doc-viewer">
                 <Button
-                  disabled={confirmationState || approvalState}
+                  disabled={confirmationState || showCorditaionSection}
                   onClick={handleUpdateData}
                   variant="contained"
                 >
                   Подготовить
                 </Button>
                 <Button
-                  disabled={confirmationState || approvalState}
+                  disabled={confirmationState || showCorditaionSection}
                   onClick={handleRefreshFile}
                   variant="contained"
                 >
@@ -415,6 +463,8 @@ const ShowWorkingHours = () => {
               }}
             >
               {currentWorkingHours.signatureList.map((e) => {
+                console.log(currentWorkingHours);
+
                 return (
                   // Нужно в AddSignature передать id
                   <SignatureForm key={e.id} item={e} onSubmit={AddSignature} />

@@ -20,14 +20,26 @@ export const statusOfDocument: StatusOfDocumentScheme[] = [
   },
   {
     id: 3,
-    statusName: "Завершено",
-    statusClass: "completed",
+    statusName: "Утверждение",
+    statusClass: "affirmation",
     statusCode: "3",
   },
   {
     id: 4,
+    statusName: "Утверждение",
+    statusClass: "affirmation",
+    statusCode: "4",
+  },
+  {
+    id: 5,
+    statusName: "Завершено",
+    statusClass: "completed",
+    statusCode: "5",
+  },
+  {
+    id: 6,
     statusName: "Удалено",
     statusClass: "deleted",
-    statusCode: "4",
+    statusCode: "6",
   },
 ];
