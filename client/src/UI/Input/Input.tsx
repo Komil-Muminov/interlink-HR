@@ -11,6 +11,7 @@ interface TProps {
   classname: string | undefined;
   disabled?: boolean;
   value?: string;
+  type?: string;
 }
 
 const Input = ({
@@ -23,11 +24,13 @@ const Input = ({
   widthStyle,
   disabled,
   value,
+  type,
 }: TProps) => {
   const isRegister = register ? { ...register(idValue) } : null;
 
   return (
     <TextField
+      type={type}
       {...isRegister}
       id={idValue}
       value={value}

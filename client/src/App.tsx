@@ -51,6 +51,14 @@ const LazyCreateContracts = lazy(
 const LazyShowContracts = lazy(
   () => import("./routes/HR/Contracts/Show/ShowContracts")
 );
+
+const LazyEmploeePersonalCard = lazy(
+  () => import("./routes/HR/Emploee Personal Card/EmploeePersonalCard")
+);
+const LazyCreateEmploeePersonalCard = lazy(
+  () =>
+    import("./routes/HR/Emploee Personal Card/Create/CreateEmploeePersonalCard")
+);
 // const LazyOrgcard = lazy(() => import("./routes/Orgcard/Orgcard"));
 function App() {
   const location = useLocation();
@@ -104,10 +112,13 @@ function App() {
                   element={<LazyShowWorkingHours />}
                 />
                 <Route
-                  path="/modules/hr/submodules/employee-personal-card/create"
-                  element={<CreateWorker />}
+                  path="/modules/hr/submodules/employee-personal-card"
+                  element={<LazyEmploeePersonalCard />}
                 />
-
+                <Route
+                  path="modules/hr/submodules/employee-personal-card/create"
+                  element={<LazyCreateEmploeePersonalCard />}
+                />
                 <Route path="/modules/hr/workerCard" element={<Usercard />} />
                 {/* create */}
                 <Route

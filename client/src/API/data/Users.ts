@@ -8,7 +8,7 @@ export interface TUsers {
   email: string;
 }
 
-export const users = [
+export const users: TUsers[] = [
   {
     id: 1,
     fullname: "Шарипов Амир",
